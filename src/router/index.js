@@ -11,13 +11,24 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/plans", // show all plans to get an overview
+    name: "Plans",
+    component: () => import("../views/Plans.vue")
+  },
+  {
+    path: "/plans/:selectedPlan", // show the different workouts of the chosen plan to select one of it
+    name: "specificPlan",
+    component: () => import("../views/PlanDetails.vue")
+  },
+  {
+    path: "/history",
+    name: "History",
+    component: () => import("../views/History.vue")
+  },
+  {
+    path: "/ongoing/:workoutId",
+    name: "Ongoing",
+    component: () => import("../views/OngoingWorkout.vue")
   }
 ];
 
