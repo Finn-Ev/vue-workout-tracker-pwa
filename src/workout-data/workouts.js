@@ -140,21 +140,21 @@ export default [
       {
         name: "Reverse Butterfly",
         sets: 3,
-        reps: "10-12",
+        reps: "12",
         pause: "1.5",
         intervall: "2, 0, 1, 0"
       },
       {
         name: "Preacher Curls",
         sets: 3,
-        reps: "8-10",
+        reps: "10",
         pause: "1.5",
         intervall: "2, 0, 1, 1"
       },
       {
         name: "Bizepscurls KH (eindrehend)",
-        sets: 2,
-        reps: "8-10",
+        sets: 3,
+        reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 1"
       }
@@ -272,7 +272,7 @@ export default [
       },
       {
         name: "Beinpresse",
-        sets: "3",
+        sets: 3,
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 0"
