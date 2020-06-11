@@ -26,7 +26,7 @@ const routes = [
     component: () => import("../views/History.vue")
   },
   {
-    path: "/ongoing/:workoutId",
+    path: "/ongoing",
     name: "Ongoing",
     component: () => import("../views/OngoingWorkout.vue")
   }

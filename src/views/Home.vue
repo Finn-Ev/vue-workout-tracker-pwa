@@ -1,5 +1,8 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <h2>Home</h2>
+    <v-btn to="/plans">Zu den Plänen</v-btn>
+  </div>
 </template>
 
 <script>
