@@ -10,6 +10,7 @@
         :key="exercise.name"
         :exercise="exercise"
         :idx="idx"
+        :ongoingExercises="ongoingExercises"
       />
 
       <v-btn class="mt-3" @click="finishWorkout">Training beenden</v-btn>
@@ -36,6 +37,9 @@ export default {
     };
   },
   computed: {
+    ongoingExercises() {
+      return JSON.parse(localStorage.getItem("ongoingExercises"));
+    },
     workoutId() {
       return localStorage.getItem("ongoingWorkout");
     },
@@ -48,7 +52,9 @@ export default {
   },
   methods: {
     finishWorkout() {
-      // TODO: push ongoing workout to "doneWorkouts" Array in local Storage
+      this.saveExercise;
+      console.log(localStorage.ongoingExercises);
+
       localStorage.removeItem("ongoingWorkout");
       this.$router.push("/");
     }
