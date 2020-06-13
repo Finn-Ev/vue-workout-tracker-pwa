@@ -455,14 +455,14 @@ export default [
       {
         name: "Bulg. Split Squats",
         sets: 2,
-        reps: "8-10",
+        reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0"
       },
       {
         name: "Wadenheben (sitzend)",
         sets: 4,
-        reps: "10-12",
+        reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0"
       }

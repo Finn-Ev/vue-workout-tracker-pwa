@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation v-if="deviceWidth < 1000">
+  <v-bottom-navigation app v-if="deviceWidth < 1000">
     <v-btn to="/">
       <span>Home</span>
       <v-icon>mdi-home</v-icon>

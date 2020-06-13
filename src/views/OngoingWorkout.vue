@@ -89,10 +89,10 @@ export default {
       return localStorage.getItem("ongoingWorkout");
     },
     activeWorkout() {
-      const [training] = workouts.filter(
+      const [workout] = workouts.filter(
         workout => workout.id == this.workoutId
       );
-      return training;
+      return workout;
     }
   },
   methods: {
