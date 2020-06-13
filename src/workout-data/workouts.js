@@ -426,8 +426,8 @@ export default [
     exercises: [
       {
         name: "Kniebeuge",
-        sets: 5,
-        reps: "5",
+        sets: 4,
+        reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1"
       },

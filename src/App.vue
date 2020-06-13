@@ -27,3 +27,10 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+</style>

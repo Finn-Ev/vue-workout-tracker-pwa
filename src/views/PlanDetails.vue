@@ -25,8 +25,11 @@
     </v-container>
     <Dialog
       :showDialog="showDialog"
+      @hideDialog="showDialog = false"
+      type="attention"
       title="Achtung"
       text="Bitte beende oder speichere erst das aktive Training"
+      :onconfirmMethod="onDialogConfirm"
     />
   </div>
 </template>
@@ -54,11 +57,14 @@ export default {
   methods: {
     setCurrentWorkout(id) {
       if (localStorage.getItem("ongoingWorkout")) {
-        return (this.showDialog = true);
+        this.showDialog = true;
       } else {
         localStorage.setItem("ongoingWorkout", id);
         this.$router.push("/ongoing");
       }
+    },
+    onDialogConfirm() {
+      this.$router.push("/ongoing");
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="showDialog" width="500" persistent>
+    <v-dialog v-model="dialog" width="500" persistent>
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>
           {{ title }}
@@ -14,9 +14,14 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" to="/ongoing" text>
-            Zum aktiven Training
-          </v-btn>
+          <div class="buttons">
+            <v-btn color="primary" text @click="onconfirmMethod">
+              {{ buttonText.confirm }}
+            </v-btn>
+            <v-btn color="primary" text @click="hideDialog">
+              {{ buttonText.cancel }}
+            </v-btn>
+          </div>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -25,7 +30,27 @@
 
 <script>
 export default {
-  props: ["showDialog", "title", "text"]
+  props: ["type", "showDialog", "title", "text", "onconfirmMethod"],
+
+  computed: {
+    buttonText() {
+      if (this.type == "save") {
+        return { confirm: " Speichern", cancel: " Fortsetzen" };
+      } else if (this.type == "cancel") {
+        return { confirm: " Abbrechen", cancel: " Fortsetzen" };
+      } else {
+        return { confirm: "Zum aktiven ", cancel: "Schließen" };
+      }
+    },
+    dialog() {
+      return this.showDialog;
+    }
+  },
+  methods: {
+    hideDialog() {
+      this.$emit("hideDialog");
+    }
+  }
 };
 </script>
 

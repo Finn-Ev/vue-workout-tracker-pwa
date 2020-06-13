@@ -1,11 +1,10 @@
 <template>
   <v-card class="my-3 mx-2">
-    <v-card-title
-      >{{ idx + 1 }}. {{ exercise.name }} <v-spacer></v-spacer>
+    <v-card-title @click="edit = !edit"
+      >{{ idx + 1 }}. {{ exercise.name }}
 
-      <v-icon @click="edit = !edit" v-if="hasBeenSaved">{{
-        !edit ? "mdi-pencil" : "X"
-      }}</v-icon>
+      <v-spacer></v-spacer>
+      <v-icon color="success" v-if="hasBeenSaved">{{ "mdi-check" }}</v-icon>
     </v-card-title>
     <div v-if="!hasBeenSaved || edit">
       <v-card-subtitle>
@@ -27,6 +26,7 @@
           type="number"
           label="Genutztes Gewicht in Kg"
         />
+
         <v-btn
           class="mr-2"
           @click="changeSetValue(n - 1, exercise.reps)"
@@ -47,7 +47,7 @@
           "
           text
           color="success"
-          >{{ hasBeenSaved ? "Eingabe ändern" : "Übung speichern" }}</v-btn
+          >{{ hasBeenSaved ? "Bestätigen" : "Übung speichern" }}</v-btn
         >
       </v-card-actions>
     </div>
@@ -56,70 +56,83 @@
 
 <script>
 export default {
-  props: ["exercise", "idx", "ongoingExercises"],
+  props: ["exercise", "idx"],
   data() {
     return {
       weight: null,
       sets: [0, 0, 0, 0],
-      hasBeenSaved: this.ongoingExercises
-        ? this.ongoingExercises.filter(
-            exercise => exercise.name === this.exercise.name
-          ).length
-        : false,
-      edit: false
+      edit: false,
+      hasBeenSaved: this.exerciseAlreadySaved() // for reactivity
     };
   },
   created() {
-    if (
-      this.ongoingExercises.filter(
-        exercise => exercise.name === this.exercise.name
-      )
-    ) {
-      const [exercise] = this.ongoingExercises.filter(
+    if (this.exerciseAlreadySaved()) {
+      const [exercise] = this.getOngoingExercises().filter(
         exercise => exercise.name === this.exercise.name
       );
       this.weight = exercise.weight;
+      this.sets = exercise.sets;
     }
   },
+
   methods: {
     changeSetValue(n, reps) {
       if (this.sets[n] >= reps * 1.5) return this.sets.splice(n, 1, 1);
       this.sets.splice(n, 1, this.sets[n] + 1);
     },
-    saveExercise(exerciseToSave) {
-      let savedExercises = localStorage.getItem("ongoingExercises")
-        ? this.ongoingExercises
+    // helper functions
+    // all exercises from the current workout
+    getOngoingExercises() {
+      const ongoingExercises = localStorage.getItem("ongoingExercises")
+        ? JSON.parse(localStorage.getItem("ongoingExercises"))
         : [];
+      return ongoingExercises;
+    },
+    //all workouts that got already saved in LS
+    getSavedWorkouts() {
+      //
+    },
+    // check if the exercise with this name was saved already during the workout
+    exerciseAlreadySaved() {
+      return this.getOngoingExercises().filter(
+        exercise => exercise.name === this.exercise.name
+      ).length;
+    },
 
-      if (
-        !savedExercises.filter(
-          exercise => exercise.name === exerciseToSave.name // check if the exercise has not been saved at least once already
-        ).length
-      ) {
+    saveExercise(exerciseToSave) {
+      if (!this.exerciseAlreadySaved()) {
         localStorage.setItem(
           "ongoingExercises",
-          JSON.stringify([exerciseToSave, ...savedExercises])
+          JSON.stringify([...this.getOngoingExercises(), exerciseToSave])
         );
-        this.hasBeenSaved = true;
       } else {
         localStorage.setItem(
           "ongoingExercises",
           JSON.stringify(
-            savedExercises.filter(
-              exercise => exercise.name !== exerciseToSave.name
+            this.getOngoingExercises().filter(
+              exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
             )
           )
         );
-        localStorage.setItem(
-          "ongoingExercises",
-          JSON.stringify([
-            exerciseToSave,
-            ...JSON.parse(localStorage.getItem("ongoingExercises"))
-          ])
-        );
+
+        if (this.getOngoingExercises().length) {
+          localStorage.setItem(
+            // add the updated version of the exercise if there are other exercises left to spread in again
+            "ongoingExercises",
+            JSON.stringify([...this.getOngoingExercises(), exerciseToSave])
+          );
+        } else {
+          localStorage.setItem(
+            // add the updated version of the exercise if there are no other exercises left to spread in again
+            // ( to prevent bugs that occur when an empty array gets stringified and saved in LS )
+            "ongoingExercises",
+            JSON.stringify([exerciseToSave])
+          );
+        }
       }
+      this.hasBeenSaved = true;
       this.edit = false;
-      console.log(localStorage.ongoingExercises);
+      console.log(JSON.parse(localStorage.ongoingExercises));
     }
   }
 };
