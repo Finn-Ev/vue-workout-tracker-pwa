@@ -6,22 +6,19 @@
           {{ title }}
         </v-card-title>
 
-        <v-card-text>
+        <v-card-text class="mt-3">
           {{ text }}
         </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <div class="buttons">
-            <v-btn color="primary" text @click="onconfirmMethod">
-              {{ buttonText.confirm }}
-            </v-btn>
-            <v-btn color="primary" text @click="hideDialog">
-              {{ buttonText.cancel }}
-            </v-btn>
-          </div>
+          <v-btn color="primary" text @click="onconfirmMethod">
+            {{ buttonText.confirm }}
+          </v-btn>
+          <v-btn color="primary" text @click="hideDialog">
+            {{ buttonText.cancel }}
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -35,11 +32,11 @@ export default {
   computed: {
     buttonText() {
       if (this.type == "save") {
-        return { confirm: " Speichern", cancel: " Fortsetzen" };
+        return { confirm: "Speichern & beenden", cancel: "Schließen" };
       } else if (this.type == "cancel") {
-        return { confirm: " Abbrechen", cancel: " Fortsetzen" };
+        return { confirm: "Training abbrechen", cancel: "Schließen" };
       } else {
-        return { confirm: "Zum aktiven ", cancel: "Schließen" };
+        return { confirm: "Zum aktiven Training ", cancel: "Schließen" };
       }
     },
     dialog() {
@@ -54,4 +51,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.v-card__actions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+</style>

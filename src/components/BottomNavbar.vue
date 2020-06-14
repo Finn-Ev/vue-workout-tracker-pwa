@@ -11,6 +11,10 @@
       <v-icon>mdi-format-list-bulleted</v-icon>
     </v-btn>
 
+    <v-btn to="/history">
+      <span>Verlauf</span>
+      <v-icon>mdi-history</v-icon>
+    </v-btn>
     <v-btn to="/ongoing">
       <span>Aktiv</span>
       <v-icon>mdi-dumbbell</v-icon>
