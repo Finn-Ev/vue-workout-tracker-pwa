@@ -9,9 +9,10 @@
     <v-container>
       <v-expansion-panels>
         <v-expansion-panel v-for="workout in workouts" :key="workout.id">
-          <v-expansion-panel-header>{{
-            workout.name
-          }}</v-expansion-panel-header>
+          <v-expansion-panel-header>
+            {{ workout.name.split("(")[0] }}
+            <!-- remove "(PPL)" or "(OKUK)" -->
+          </v-expansion-panel-header>
           <v-expansion-panel-content>
             <p v-for="exercise in workout.exercises" :key="exercise.name">
               {{ exercise.name }}
@@ -59,7 +60,10 @@ export default {
       if (localStorage.getItem("ongoingWorkout")) {
         this.showDialog = true;
       } else {
-        localStorage.setItem("ongoingWorkout", id);
+        localStorage.setItem(
+          "ongoingWorkout",
+          JSON.stringify({ id, startDate: Date.now() })
+        );
         this.$router.push("/ongoing");
       }
     },

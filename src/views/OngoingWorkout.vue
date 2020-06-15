@@ -5,16 +5,17 @@
         Aktives Training: {{ activeWorkout.name }}
       </h3>
       <Exercise
-        class="my-3 mx-2"
+        class="mt-3 mx-2"
         v-for="(exercise, idx) in activeWorkout.exercises"
         :key="exercise.name"
         :exercise="exercise"
         :idx="idx"
+        :savedExerciseData="savedExerciseData"
       />
-      <div class="buttons mx-4 mb-3">
+
+      <div class="buttons mt-1 mx-4 mb-3">
         <v-btn
           color="success"
-          class="mt-3"
           @click="
             setDialogValues({
               type: 'save',
@@ -86,13 +87,19 @@ export default {
   },
   computed: {
     workoutId() {
-      return localStorage.getItem("ongoingWorkout");
+      return JSON.parse(localStorage.getItem("ongoingWorkout"))?.id;
     },
     activeWorkout() {
       const [workout] = workouts.filter(
         workout => workout.id == this.workoutId
       );
       return workout;
+    },
+    //all workouts that got already saved in LS
+    savedExerciseData() {
+      return JSON.parse(localStorage.getItem("savedWorkouts"))
+        .filter(workout => workout.name == this.activeWorkout.name)
+        .reverse()[0].exercises;
     }
   },
   methods: {
@@ -103,15 +110,19 @@ export default {
       const ongoingExercises = JSON.parse(
         localStorage.getItem("ongoingExercises")
       );
+      const { startDate } = JSON.parse(localStorage.getItem("ongoingWorkout"));
       const savedWorkouts = localStorage.getItem("savedWorkouts")
         ? JSON.parse(localStorage.getItem("savedWorkouts"))
         : [];
 
       const workoutToSave = {
         date: Date.now(),
+        duration:
+          Math.ceil((Date.now() - startDate) / (1000 * 60)) + " minuten",
         name: this.activeWorkout.name,
         exercises: ongoingExercises
       };
+
       savedWorkouts.push(workoutToSave);
 
       localStorage.setItem("savedWorkouts", JSON.stringify([...savedWorkouts]));
@@ -121,7 +132,7 @@ export default {
       localStorage.removeItem("ongoingExercises");
       console.log(JSON.parse(localStorage.savedWorkouts));
 
-      this.$router.push("/");
+      this.$router.push("/history");
     },
     cancelWorkout() {
       localStorage.removeItem("ongoingWorkout");

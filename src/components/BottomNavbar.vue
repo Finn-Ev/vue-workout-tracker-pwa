@@ -1,30 +1,47 @@
 <template>
   <v-bottom-navigation app v-if="deviceWidth < 1000">
     <v-btn to="/">
-      <span>Home</span>
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
     <v-btn to="/plans">
-      <span>Pläne</span>
-
       <v-icon>mdi-format-list-bulleted</v-icon>
     </v-btn>
 
     <v-btn to="/history">
-      <span>Verlauf</span>
       <v-icon>mdi-history</v-icon>
     </v-btn>
-    <v-btn to="/ongoing">
-      <span>Aktiv</span>
+
+    <v-btn v-if="activeWorkout" to="/ongoing">
       <v-icon>mdi-dumbbell</v-icon>
+    </v-btn>
+    <v-btn v-else to="/settings">
+      <v-icon>mdi-cog-outline</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
 
 <script>
 export default {
-  props: ["deviceWidth"]
+  data() {
+    return {
+      activeWorkout: false
+    };
+  },
+  props: ["deviceWidth"],
+
+  methods: {
+    checkActiveWorkout: function() {
+      this.activeWorkout = !!localStorage.getItem("ongoingWorkout");
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path !== from.path) {
+        this.checkActiveWorkout();
+      }
+    }
+  }
 };
 </script>
 

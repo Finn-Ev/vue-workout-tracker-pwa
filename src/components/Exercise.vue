@@ -13,10 +13,10 @@
         <div>Intervall: {{ exercise.intervall }}</div>
       </v-card-subtitle>
 
-      <v-card-text>
+      <v-card-text v-if="lastTrainingData">
         <h4>Stats vom letzten Training:</h4>
-        <div>Genutztes Gewicht: /</div>
-        <div>Wiederholungen: x/x/x/x</div>
+        <div>Genutztes Gewicht: {{ lastTrainingData.weight }}</div>
+        <div>Wiederholungen: {{ lastTrainingData.sets.toString() }}</div>
       </v-card-text>
 
       <v-card-text>
@@ -42,7 +42,7 @@
             saveExercise({
               name: exercise.name,
               sets,
-              weight
+              weight: weight ? weight : 0
             })
           "
           text
@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  props: ["exercise", "idx"],
+  props: ["exercise", "idx", "savedExerciseData"],
   data() {
     return {
       weight: null,
@@ -74,6 +74,21 @@ export default {
       this.sets = exercise.sets;
     }
   },
+  computed: {
+    lastTrainingData() {
+      const [lastTrainingValues] = this.savedExerciseData.filter(
+        exercise => exercise.name === this.exercise.name
+      );
+
+      if (lastTrainingValues) {
+        return {
+          weight: lastTrainingValues.weight + " Kg",
+          sets: lastTrainingValues.sets
+        };
+      }
+      return null;
+    }
+  },
 
   methods: {
     changeSetValue(n, reps) {
@@ -88,10 +103,7 @@ export default {
         : [];
       return ongoingExercises;
     },
-    //all workouts that got already saved in LS
-    getSavedWorkouts() {
-      //
-    },
+
     // check if the exercise with this name was saved already during the workout
     exerciseAlreadySaved() {
       return this.getOngoingExercises().filter(

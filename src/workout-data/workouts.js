@@ -2,7 +2,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLA1",
-    name: "Push Tag 1",
+    name: "Push Tag A (PPL)",
     exercises: [
       {
         name: "Bankdrücken",
@@ -58,7 +58,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLA2",
-    name: "Push Tag 2",
+    name: "Push Tag B (PPL)",
     exercises: [
       {
         name: "Schrägbankdrücken",
@@ -114,7 +114,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLB1",
-    name: "Pull Tag 1",
+    name: "Pull Tag A (PPL)",
     exercises: [
       {
         name: "Pendlay Rows",
@@ -163,7 +163,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLB2",
-    name: "Pull Tag 2",
+    name: "Pull Tag B (PPL)",
     exercises: [
       {
         name: "Latzug",
@@ -212,7 +212,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLC1",
-    name: "Legs Tag 1",
+    name: "Legs Tag A (PPL)",
     exercises: [
       {
         name: "Kreuzheben",
@@ -261,7 +261,7 @@ export default [
   {
     plan: "ppl",
     id: "PPLC2",
-    name: "Legs Tag 2",
+    name: "Legs Tag B (PPL)",
     exercises: [
       {
         name: "Kniebeuge",
@@ -310,7 +310,7 @@ export default [
   {
     plan: "okuk",
     id: "OKUKA1",
-    name: "Oberkörper Tag 1",
+    name: "Oberkörper Tag A (OKUK)",
     exercises: [
       {
         name: "Bankdrücken",
@@ -366,7 +366,7 @@ export default [
   {
     plan: "okuk",
     id: "OKUKA2",
-    name: "Oberkörper Tag 2",
+    name: "Oberkörper Tag B (OKUK)",
     exercises: [
       {
         name: "Schulterdrücken",
@@ -422,7 +422,7 @@ export default [
   {
     plan: "okuk",
     id: "OKUKB2",
-    name: "Unterkörper Tag 1",
+    name: "Unterkörper Tag A (OKUK)",
     exercises: [
       {
         name: "Kniebeuge",
@@ -471,7 +471,7 @@ export default [
   {
     plan: "okuk",
     id: "OKUKC2",
-    name: "Unterkörper Tag 2",
+    name: "Unterkörper Tag B (OKUK)",
     exercises: [
       {
         name: "Kreuzheben",
