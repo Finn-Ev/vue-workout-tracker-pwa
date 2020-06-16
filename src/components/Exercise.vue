@@ -13,10 +13,10 @@
         <div>Intervall: {{ exercise.intervall }}</div>
       </v-card-subtitle>
 
-      <v-card-text v-if="lastTrainingData">
+      <v-card-text v-if="lastTrainingStats">
         <h4>Stats vom letzten Training:</h4>
-        <div>Genutztes Gewicht: {{ lastTrainingData.weight }}</div>
-        <div>Wiederholungen: {{ lastTrainingData.sets.toString() }}</div>
+        <div>Genutztes Gewicht: {{ lastTrainingStats.weight }}</div>
+        <div>Wiederholungen: {{ lastTrainingStats.sets.toString() }}</div>
       </v-card-text>
 
       <v-card-text>
@@ -41,11 +41,12 @@
           @click="
             saveExercise({
               name: exercise.name,
-              sets,
+              sets: sets.filter(set => set !== 0),
               weight: weight ? weight : 0
             })
           "
           text
+          block
           color="success"
           >{{ hasBeenSaved ? "Bestätigen" : "Übung speichern" }}</v-btn
         >
@@ -62,7 +63,7 @@ export default {
       weight: null,
       sets: [0, 0, 0, 0],
       edit: false,
-      hasBeenSaved: this.exerciseAlreadySaved() // for reactivity
+      hasBeenSaved: false
     };
   },
   created() {
@@ -75,7 +76,7 @@ export default {
     }
   },
   computed: {
-    lastTrainingData() {
+    lastTrainingStats() {
       const [lastTrainingValues] = this.savedExerciseData.filter(
         exercise => exercise.name === this.exercise.name
       );
@@ -106,9 +107,10 @@ export default {
 
     // check if the exercise with this name was saved already during the workout
     exerciseAlreadySaved() {
-      return this.getOngoingExercises().filter(
+      this.hasBeenSaved = this.getOngoingExercises().filter(
         exercise => exercise.name === this.exercise.name
       ).length;
+      return this.hasBeenSaved;
     },
 
     saveExercise(exerciseToSave) {

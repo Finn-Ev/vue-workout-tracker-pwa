@@ -29,6 +29,11 @@ const routes = [
     path: "/ongoing",
     name: "Ongoing",
     component: () => import("../views/OngoingWorkout.vue")
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: () => import("../views/Settings.vue")
   }
 ];
 

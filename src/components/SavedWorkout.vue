@@ -1,14 +1,19 @@
 <template>
-  <v-card class="mx-2 mt-2">
-    <div @click="showDetails = !showDetails">
-      <v-card-title>
-        {{ workout.name }}
-      </v-card-title>
-      <v-card-subtitle> {{ formatDate(workout.date) }}</v-card-subtitle>
+  <v-card class="mx-2 my-2">
+    <div @click="showDetails = !showDetails" class="card-header">
+      <div>
+        <v-card-title>
+          {{ workout.name }}
+        </v-card-title>
+        <v-card-subtitle> {{ formatDate(workout.date) }}</v-card-subtitle>
+      </div>
+      <v-icon :class="showDetails ? 'rotate' : ''">mdi-chevron-down</v-icon>
+      <!-- <v-icon v-else>mdi-chevron-down</v-icon> -->
     </div>
 
     <v-card-text v-if="showDetails">
-      <div class="details-header">
+      <v-divider></v-divider>
+      <div class="mt-5">
         <p>Trainingsdauer: {{ workout.duration }}</p>
       </div>
 
@@ -34,7 +39,7 @@ export default {
     return {
       showDetails: false,
       tableHeaders: [
-        { text: "Übung", value: "name", align: "start", sortable: true },
+        { text: "Übung", value: "name", align: "start", sortable: false },
         { text: "Sätze", value: "sets" },
         { text: "Gewicht", value: "weight" }
       ]
@@ -44,7 +49,7 @@ export default {
     tableItems() {
       const tableItems = this.workout.exercises.map(exercise => ({
         name: exercise.name,
-        sets: exercise.sets.filter(set => set !== 0),
+        sets: exercise.sets,
         weight: exercise.weight + " Kg"
       }));
       return tableItems;
@@ -70,7 +75,26 @@ export default {
 }
 .details-header {
   margin-top: -0.5rem;
-  border-top: grey 1px solid;
+
   padding-top: 1.5rem;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+}
+
+// animation
+.rotate {
+  animation: rotate 0.3s ease;
+  transform: rotate(180deg);
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
 }
 </style>

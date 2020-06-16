@@ -17,7 +17,11 @@
             <p v-for="exercise in workout.exercises" :key="exercise.name">
               {{ exercise.name }}
             </p>
-            <v-btn @click="setCurrentWorkout(workout.id)" text color="success"
+            <v-btn
+              @click="setCurrentWorkout(workout.id)"
+              block
+              text
+              color="success"
               >Dieses Training starten</v-btn
             >
           </v-expansion-panel-content>
@@ -27,7 +31,7 @@
     <Dialog
       :showDialog="showDialog"
       @hideDialog="showDialog = false"
-      type="attention"
+      confirmText="Zum aktiven Training"
       title="Achtung"
       text="Bitte beende oder speichere erst das aktive Training"
       :onconfirmMethod="onDialogConfirm"

@@ -4,9 +4,7 @@
       <v-card-title>{{ title }}</v-card-title>
       <v-card-text>{{ description }}</v-card-text>
       <v-card-actions>
-        <v-btn class="text-transform-none" text :to="`plans/${url}`"
-          >Zum Plan</v-btn
-        >
+        <v-btn color="darkgrey" block :to="`plans/${url}`">Zum Plan</v-btn>
       </v-card-actions>
     </v-card>
   </v-col>

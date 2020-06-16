@@ -18,12 +18,12 @@
           color="success"
           @click="
             setDialogValues({
-              type: 'save',
               showDialog: true,
               title: 'Training speichern?',
               text: 'Willst du das Training wirklich speichern und beenden?',
-              url: '/',
-              onconfirmMethod: finishWorkout
+              textColor: 'green',
+              onconfirmMethod: finishWorkout,
+              confirmText: 'Speichern & Beenden'
             })
           "
           >Training speichern & beenden
@@ -34,13 +34,13 @@
           class="mt-3 white--text"
           @click="
             setDialogValues({
-              type: 'cancel',
               showDialog: true,
               title: 'Achtung',
               text:
                 'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert',
-              url: '/',
-              onconfirmMethod: cancelWorkout
+              textColor: 'red',
+              onconfirmMethod: cancelWorkout,
+              confirmText: 'Training abbrechen'
             })
           "
           >Training abbrechen</v-btn
@@ -50,8 +50,10 @@
           :showDialog="dialog.showDialog"
           @hideDialog="dialog.showDialog = false"
           :title="dialog.title"
+          :textColor="dialog.textColor"
           :text="dialog.text"
           :onconfirmMethod="dialog.onconfirmMethod"
+          :confirmText="dialog.confirmText"
         />
       </div>
     </div>
@@ -74,13 +76,7 @@ export default {
   },
   data() {
     return {
-      dialog: {
-        type: "",
-        showDialog: false,
-        title: "",
-        text: "",
-        onconfirmMethod: () => ({})
-      },
+      dialog: {},
       workouts,
       completedExercises: []
     };
@@ -95,16 +91,37 @@ export default {
       );
       return workout;
     },
-    //all workouts that got already saved in LS
+
     savedExerciseData() {
-      return JSON.parse(localStorage.getItem("savedWorkouts"))
-        .filter(workout => workout.name == this.activeWorkout.name)
-        .reverse()[0].exercises;
+      if (localStorage.getItem("savedWorkouts")) {
+        return JSON.parse(localStorage.getItem("savedWorkouts")).filter(
+          workout => workout.name == this.activeWorkout.name
+        ).length
+          ? JSON.parse(localStorage.getItem("savedWorkouts"))
+              .filter(workout => workout.name == this.activeWorkout.name)
+              .reverse()[0].exercises
+          : [];
+      }
+      return [];
     }
   },
   methods: {
-    setDialogValues({ type, showDialog, title, text, onconfirmMethod }) {
-      this.dialog = { type, showDialog, title, text, onconfirmMethod };
+    setDialogValues({
+      showDialog,
+      title,
+      text,
+      textColor,
+      onconfirmMethod,
+      confirmText
+    }) {
+      this.dialog = {
+        showDialog,
+        title,
+        text,
+        textColor,
+        onconfirmMethod,
+        confirmText
+      };
     },
     finishWorkout() {
       const ongoingExercises = JSON.parse(
