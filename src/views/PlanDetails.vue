@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     setCurrentWorkout(id) {
-      console.log(this.ongoingWorkout);
       if (this.ongoingWorkout.isActive) {
         this.showDialog = true;
       } else {

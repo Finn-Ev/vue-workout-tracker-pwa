@@ -20,6 +20,10 @@
           Wiederholungen:
           {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
         </div>
+        <div class="mt-3">
+          <span>Notizen vom letzten Training:</span> <br />
+          <span>{{ lastTrainingStats.notes }}</span>
+        </div>
       </v-card-text>
 
       <v-card-text>
@@ -29,14 +33,30 @@
           type="number"
           label="Genutztes Gewicht in Kg"
         />
+        <div class="button-wrapper">
+          <div>
+            <v-btn
+              class="mr-2"
+              @click="changeSetValue(n - 1, exercise.reps)"
+              v-for="n in exercise.sets"
+              :key="n"
+              >{{ sets[n - 1] }}</v-btn
+            >
+          </div>
 
-        <v-btn
-          class="mr-2"
-          @click="changeSetValue(n - 1, exercise.reps)"
-          v-for="n in exercise.sets"
-          :key="n"
-          >{{ sets[n - 1] }}</v-btn
-        >
+          <v-icon @click="showNotesTextField = !showNotesTextField">
+            mdi-text
+          </v-icon>
+        </div>
+
+        <v-text-field
+          aria-autocomplete="false"
+          v-if="showNotesTextField"
+          type="text"
+          class="mt-5 textarea"
+          label="Notiz fürs nächste Training"
+          v-model="notes"
+        ></v-text-field>
       </v-card-text>
 
       <v-card-actions>
@@ -44,8 +64,9 @@
           @click="
             saveExercise({
               name: exercise.name,
-              sets: sets.filter(set => set !== 0),
-              weight: weight ? weight : 0
+              sets,
+              weight: weight ? weight : 0,
+              notes: notes ? notes : ''
             })
           "
           text
@@ -64,9 +85,11 @@ export default {
   data() {
     return {
       weight: null,
+      notes: "",
       sets: [0, 0, 0, 0],
       edit: false,
-      hasBeenSaved: false
+      hasBeenSaved: false,
+      showNotesTextField: false
     };
   },
   created() {
@@ -76,6 +99,7 @@ export default {
       );
       this.weight = exercise.weight;
       this.sets = exercise.sets;
+      this.notes = exercise.notes;
     }
   },
   computed: {
@@ -87,7 +111,8 @@ export default {
       if (lastTrainingValues) {
         return {
           weight: lastTrainingValues.weight + " Kg",
-          sets: lastTrainingValues.sets
+          sets: lastTrainingValues.sets,
+          notes: lastTrainingValues.notes
         };
       }
       return null;
@@ -136,4 +161,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+</style>

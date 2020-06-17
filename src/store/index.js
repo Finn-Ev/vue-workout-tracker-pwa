@@ -18,7 +18,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SAVE_WORKOUT(state, workout) {
-      state.savedWorkouts.push(workout);
+      state.savedWorkouts.unshift(workout);
       state.ongoingWorkout = {
         isActive: false,
         exercises: []
