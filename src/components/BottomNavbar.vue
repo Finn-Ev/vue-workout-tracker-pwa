@@ -31,7 +31,7 @@ export default {
 
   methods: {
     checkActiveWorkout: function() {
-      this.activeWorkout = !!localStorage.getItem("ongoingWorkout");
+      this.activeWorkout = this.$store.getters.ongoingWorkout.isActive;
     }
   },
   watch: {

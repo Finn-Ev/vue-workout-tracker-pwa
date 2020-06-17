@@ -37,7 +37,7 @@
               showDialog: true,
               title: 'Achtung',
               text:
-                'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert',
+                'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert.',
               textColor: 'red',
               onconfirmMethod: cancelWorkout,
               confirmText: 'Training abbrechen'
@@ -83,7 +83,8 @@ export default {
   },
   computed: {
     workoutId() {
-      return JSON.parse(localStorage.getItem("ongoingWorkout"))?.id;
+      return this.$store.getters.ongoingWorkout?.id;
+      // return JSON.parse(localStorage.getItem("ongoingWorkout"))?.id;
     },
     activeWorkout() {
       const [workout] = workouts.filter(
@@ -91,46 +92,33 @@ export default {
       );
       return workout;
     },
-
+    savedWorkouts() {
+      return this.$store.getters.savedWorkouts;
+    },
     savedExerciseData() {
-      if (localStorage.getItem("savedWorkouts")) {
-        return JSON.parse(localStorage.getItem("savedWorkouts")).filter(
-          workout => workout.name == this.activeWorkout.name
-        ).length
-          ? JSON.parse(localStorage.getItem("savedWorkouts"))
-              .filter(workout => workout.name == this.activeWorkout.name)
-              .reverse()[0].exercises
-          : [];
-      }
-      return [];
+      return this.savedWorkouts.filter(
+        workout => workout.name == this.activeWorkout.name
+      ).length
+        ? this.savedWorkouts.filter(
+            workout => workout.name == this.activeWorkout.name
+          )[0].exercises
+        : [];
+      // return JSON.parse(localStorage.getItem("savedWorkouts")).filter(
+      //   workout => workout.name == this.activeWorkout.name
+      // ).length
+      //   ? JSON.parse(localStorage.getItem("savedWorkouts"))
+      //       .filter(workout => workout.name == this.activeWorkout.name)
+      //       .reverse()[0].exercises
+      //   : [];
     }
   },
   methods: {
-    setDialogValues({
-      showDialog,
-      title,
-      text,
-      textColor,
-      onconfirmMethod,
-      confirmText
-    }) {
-      this.dialog = {
-        showDialog,
-        title,
-        text,
-        textColor,
-        onconfirmMethod,
-        confirmText
-      };
+    setDialogValues({ ...dialogData }) {
+      this.dialog = dialogData;
     },
     finishWorkout() {
-      const ongoingExercises = JSON.parse(
-        localStorage.getItem("ongoingExercises")
-      );
-      const { startDate } = JSON.parse(localStorage.getItem("ongoingWorkout"));
-      const savedWorkouts = localStorage.getItem("savedWorkouts")
-        ? JSON.parse(localStorage.getItem("savedWorkouts"))
-        : [];
+      const ongoingExercises = this.$store.getters.ongoingWorkout.exercises;
+      const { startDate } = this.$store.getters.ongoingWorkout;
 
       const workoutToSave = {
         date: Date.now(),
@@ -140,20 +128,12 @@ export default {
         exercises: ongoingExercises
       };
 
-      savedWorkouts.push(workoutToSave);
-
-      localStorage.setItem("savedWorkouts", JSON.stringify([...savedWorkouts]));
-
-      // clean up
-      localStorage.removeItem("ongoingWorkout");
-      localStorage.removeItem("ongoingExercises");
-      console.log(JSON.parse(localStorage.savedWorkouts));
+      this.$store.dispatch("saveWorkout", workoutToSave);
 
       this.$router.push("/history");
     },
     cancelWorkout() {
-      localStorage.removeItem("ongoingWorkout");
-      localStorage.removeItem("ongoingExercises");
+      this.$store.dispatch("cancelWorkout");
       this.$router.push("/");
     }
   }

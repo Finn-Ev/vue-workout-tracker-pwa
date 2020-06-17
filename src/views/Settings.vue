@@ -18,6 +18,7 @@
           :showDialog="showDialog"
           @hideDialog="showDialog = false"
           title="Achtung"
+          textColor="red"
           confirmText="Verlauf löschen"
           text="Willst du den Trainingsverlauf wirklich löschen?"
           :onconfirmMethod="clearHistory"
@@ -40,11 +41,7 @@ export default {
   },
   computed: {
     savedWorkouts() {
-      const savedWorkouts = localStorage.getItem("savedWorkouts")
-        ? JSON.parse(localStorage.getItem("savedWorkouts")).reverse()
-        : [];
-
-      return savedWorkouts;
+      return this.$store.getters.savedWorkouts;
     },
     darkTheme() {
       return this.$vuetify.theme.dark;
@@ -59,7 +56,7 @@ export default {
       );
     },
     clearHistory() {
-      localStorage.removeItem("savedWorkouts");
+      this.$store.dispatch("clearWorkoutHistory");
       window.location.reload();
     }
   }

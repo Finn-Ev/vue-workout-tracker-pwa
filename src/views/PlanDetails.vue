@@ -1,6 +1,6 @@
 <template>
   <div class="plan-details">
-    <h2 class="text-center mt-3 font-weight-regular">
+    <h2 class="mt-3 text-center font-weight-regular">
       {{
         selectedPlan === "ppl" ? "Push Pull Legs" : "Oberkörper / Unterkörper"
       }}
@@ -17,6 +17,7 @@
             <p v-for="exercise in workout.exercises" :key="exercise.name">
               {{ exercise.name }}
             </p>
+
             <v-btn
               @click="setCurrentWorkout(workout.id)"
               block
@@ -57,17 +58,23 @@ export default {
     },
     workouts() {
       return workouts.filter(workout => workout.plan === this.selectedPlan);
+    },
+    ongoingWorkout() {
+      return this.$store.getters.ongoingWorkout;
     }
   },
   methods: {
     setCurrentWorkout(id) {
-      if (localStorage.getItem("ongoingWorkout")) {
+      console.log(this.ongoingWorkout);
+      if (this.ongoingWorkout.isActive) {
         this.showDialog = true;
       } else {
-        localStorage.setItem(
-          "ongoingWorkout",
-          JSON.stringify({ id, startDate: Date.now() })
-        );
+        this.$store.dispatch("mutateOngoingWorkout", {
+          isActive: true,
+          id,
+          startDate: Date.now()
+        });
+
         this.$router.push("/ongoing");
       }
     },

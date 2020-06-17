@@ -1,6 +1,6 @@
 <template>
   <div class="plans">
-    <h2 class="text-center mt-5 font-weight-regular">
+    <h2 class="mt-3 text-center font-weight-regular">
       Verfügbare Trainingspläne
     </h2>
     <v-container>

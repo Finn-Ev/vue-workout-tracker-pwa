@@ -21,11 +21,7 @@ export default {
 
   computed: {
     savedWorkouts() {
-      const savedWorkouts = localStorage.getItem("savedWorkouts")
-        ? JSON.parse(localStorage.getItem("savedWorkouts")).reverse()
-        : [];
-
-      return savedWorkouts;
+      return this.$store.getters.savedWorkouts;
     }
   }
 };

@@ -16,7 +16,10 @@
       <v-card-text v-if="lastTrainingStats">
         <h4>Stats vom letzten Training:</h4>
         <div>Genutztes Gewicht: {{ lastTrainingStats.weight }}</div>
-        <div>Wiederholungen: {{ lastTrainingStats.sets.toString() }}</div>
+        <div>
+          Wiederholungen:
+          {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
+        </div>
       </v-card-text>
 
       <v-card-text>
@@ -99,10 +102,7 @@ export default {
     // helper functions
     // all exercises from the current workout
     getOngoingExercises() {
-      const ongoingExercises = localStorage.getItem("ongoingExercises")
-        ? JSON.parse(localStorage.getItem("ongoingExercises"))
-        : [];
-      return ongoingExercises;
+      return this.$store.getters.ongoingWorkout.exercises;
     },
 
     // check if the exercise with this name was saved already during the workout
@@ -115,38 +115,22 @@ export default {
 
     saveExercise(exerciseToSave) {
       if (!this.exerciseAlreadySaved()) {
-        localStorage.setItem(
-          "ongoingExercises",
-          JSON.stringify([...this.getOngoingExercises(), exerciseToSave])
-        );
+        this.$store.dispatch("saveExercises", [
+          ...this.getOngoingExercises(),
+          exerciseToSave
+        ]);
       } else {
-        localStorage.setItem(
-          "ongoingExercises",
-          JSON.stringify(
-            this.getOngoingExercises().filter(
-              exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
-            )
-          )
+        const filteredExercises = this.getOngoingExercises().filter(
+          exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
         );
 
-        if (this.getOngoingExercises().length) {
-          localStorage.setItem(
-            // add the updated version of the exercise if there are other exercises left to spread in again
-            "ongoingExercises",
-            JSON.stringify([...this.getOngoingExercises(), exerciseToSave])
-          );
-        } else {
-          localStorage.setItem(
-            // add the updated version of the exercise if there are no other exercises left to spread in again
-            // ( to prevent bugs that occur when an empty array gets stringified and saved in LS )
-            "ongoingExercises",
-            JSON.stringify([exerciseToSave])
-          );
-        }
+        this.$store.dispatch("saveExercises", [
+          ...filteredExercises,
+          exerciseToSave
+        ]);
       }
       this.hasBeenSaved = true;
       this.edit = false;
-      console.log(JSON.parse(localStorage.ongoingExercises));
     }
   }
 };
