@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="responsive">
     <h2 class="text-center font-weight-regular my-3">Einstellungen</h2>
     <v-card class="mx-2">
       <v-card-text>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Dialog from "../components/Dialog";
+import Dialog from "../components/shared/Dialog";
 export default {
   components: {
     Dialog

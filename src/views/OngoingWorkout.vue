@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-if="workoutId">
+    <v-snackbar v-model="showAlert" color="red" top :timeout="3500">
+      Du musst mindestens eine Übung speichern.
+    </v-snackbar>
+
+    <div class="responsive" v-if="workoutId">
       <h3 class=" mt-3 text-center font-weight-regular">
         Aktives Training: {{ activeWorkout.name }}
       </h3>
@@ -67,8 +71,8 @@
 
 <script>
 import workouts from "../workout-data/workouts";
-import Exercise from "../components/Exercise";
-import Dialog from "../components/Dialog";
+import Exercise from "../components/other/Exercise";
+import Dialog from "../components/shared/Dialog";
 export default {
   components: {
     Exercise,
@@ -78,13 +82,13 @@ export default {
     return {
       dialog: {},
       workouts,
-      completedExercises: []
+      completedExercises: [],
+      showAlert: false
     };
   },
   computed: {
     workoutId() {
       return this.$store.getters.ongoingWorkout?.id;
-      // return JSON.parse(localStorage.getItem("ongoingWorkout"))?.id;
     },
     activeWorkout() {
       const [workout] = workouts.filter(
@@ -103,13 +107,6 @@ export default {
             workout => workout.name == this.activeWorkout.name
           )[0].exercises
         : [];
-      // return JSON.parse(localStorage.getItem("savedWorkouts")).filter(
-      //   workout => workout.name == this.activeWorkout.name
-      // ).length
-      //   ? JSON.parse(localStorage.getItem("savedWorkouts"))
-      //       .filter(workout => workout.name == this.activeWorkout.name)
-      //       .reverse()[0].exercises
-      //   : [];
     }
   },
   methods: {
@@ -118,6 +115,13 @@ export default {
     },
     finishWorkout() {
       const ongoingExercises = this.$store.getters.ongoingWorkout.exercises;
+
+      if (!ongoingExercises.length) {
+        this.showAlert = true;
+        this.dialog.showDialog = false;
+        return;
+      }
+
       const { startDate } = this.$store.getters.ongoingWorkout;
 
       const workoutToSave = {
@@ -129,7 +133,6 @@ export default {
       };
 
       this.$store.dispatch("saveWorkout", workoutToSave);
-
       this.$router.push("/history");
     },
     cancelWorkout() {
@@ -140,4 +143,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

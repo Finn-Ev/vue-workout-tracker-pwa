@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation app v-if="deviceWidth < 1000">
+  <v-bottom-navigation app style="alignItems: center">
     <v-btn to="/">
       <v-icon>mdi-home</v-icon>
     </v-btn>
@@ -27,7 +27,6 @@ export default {
       activeWorkout: false
     };
   },
-  props: ["deviceWidth"],
 
   methods: {
     checkActiveWorkout: function() {

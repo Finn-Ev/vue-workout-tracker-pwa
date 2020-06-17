@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="responsive">
     <h2 class="mt-3 text-center font-weight-regular">Verlauf</h2>
     <div v-if="savedWorkouts.length">
       <SavedWorkout
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import SavedWorkout from "../components/SavedWorkout";
+import SavedWorkout from "../components/other/SavedWorkout";
 export default {
   components: {
     SavedWorkout

@@ -7,6 +7,6 @@ export default new Vuetify({
   theme: {
     dark: localStorage.getItem("theme")
       ? JSON.parse(localStorage.getItem("theme")).dark
-      : false
+      : true
   }
 });

@@ -1,30 +1,23 @@
 <template>
   <v-app>
-    <Navbar :deviceWidth="deviceWidth" />
     <v-content>
       <router-view />
     </v-content>
-    <BottomNavbar :deviceWidth="deviceWidth" />
+    <BottomNavbar />
   </v-app>
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
-import BottomNavbar from "./components/BottomNavbar";
+import BottomNavbar from "./components/layout/BottomNavbar";
 export default {
   name: "App",
   components: {
-    Navbar,
     BottomNavbar
   },
   data: () => ({
     //
   }),
-  computed: {
-    deviceWidth() {
-      return window.innerWidth;
-    }
-  }
+  computed: {}
 };
 </script>
 <style lang="scss">
@@ -32,5 +25,10 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.responsive {
+  max-width: 600px;
+  margin: auto;
 }
 </style>

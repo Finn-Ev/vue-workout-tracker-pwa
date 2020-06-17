@@ -36,7 +36,7 @@
         <div class="button-wrapper">
           <div>
             <v-btn
-              class="mr-2"
+              class="mr-2 my-1"
               @click="changeSetValue(n - 1, exercise.reps)"
               v-for="n in exercise.sets"
               :key="n"
@@ -44,7 +44,10 @@
             >
           </div>
 
-          <v-icon @click="showNotesTextField = !showNotesTextField">
+          <v-icon
+            class="notes-icon"
+            @click="showNotesTextField = !showNotesTextField"
+          >
             mdi-text
           </v-icon>
         </div>
@@ -165,5 +168,8 @@ export default {
 .button-wrapper {
   display: flex;
   justify-content: space-between;
+}
+.mdi-text {
+  background-color: none !important;
 }
 </style>

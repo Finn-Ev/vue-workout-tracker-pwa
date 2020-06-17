@@ -1,5 +1,5 @@
 <template>
-  <div class="plans">
+  <div class="plans responsive" style="maxWidth: 800px">
     <h2 class="mt-3 text-center font-weight-regular">
       Verfügbare Trainingspläne
     </h2>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import PlanPreview from "../components/PlanPreview";
+import PlanPreview from "../components/other/PlanPreview";
 export default {
   data() {
     return {

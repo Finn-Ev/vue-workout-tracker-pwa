@@ -1,5 +1,5 @@
 <template>
-  <div class="plan-details">
+  <div class="plan-details responsive">
     <h2 class="mt-3 text-center font-weight-regular">
       {{
         selectedPlan === "ppl" ? "Push Pull Legs" : "Oberkörper / Unterkörper"
@@ -34,6 +34,7 @@
       @hideDialog="showDialog = false"
       confirmText="Zum aktiven Training"
       title="Achtung"
+      textColor="orange"
       text="Bitte beende oder speichere erst das aktive Training"
       :onconfirmMethod="onDialogConfirm"
     />
@@ -42,7 +43,7 @@
 
 <script>
 import workouts from "../workout-data/workouts";
-import Dialog from "../components/Dialog";
+import Dialog from "../components/shared/Dialog";
 export default {
   components: {
     Dialog
