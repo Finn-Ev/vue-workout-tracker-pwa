@@ -169,7 +169,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.mdi-text {
-  background-color: none !important;
+.mdi-text::after {
+  background-color: rgba($color: #000000, $alpha: 0) !important;
 }
 </style>
