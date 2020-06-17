@@ -8,7 +8,11 @@
         :workout="workout"
       />
     </div>
-    <div v-else>Du hast noch keine Trainingseinheiten gespeichert</div>
+    <div v-else>
+      <p class="text-center">
+        Du hast noch keine Trainingseinheiten gespeichert
+      </p>
+    </div>
   </div>
 </template>
 
