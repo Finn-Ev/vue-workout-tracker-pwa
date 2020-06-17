@@ -29,8 +29,10 @@ export default {
   },
 
   methods: {
-    checkActiveWorkout: function() {
-      this.activeWorkout = this.$store.getters.ongoingWorkout.isActive;
+    checkActiveWorkout() {
+      console.log(this.$store.state);
+
+      this.activeWorkout = this.$store.state.workouts.ongoingWorkout.isActive;
     }
   },
   watch: {

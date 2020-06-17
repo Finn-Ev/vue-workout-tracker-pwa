@@ -84,17 +84,8 @@ export default {
   width: 94%;
 }
 
-// animation
 .rotate {
-  animation: rotate 0.3s ease;
+  transition: 0.3s ease-in all;
   transform: rotate(180deg);
-  @keyframes rotate {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(180deg);
-    }
-  }
 }
 </style>

@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: ["exercise", "idx", "savedExerciseData"],
   data() {
@@ -97,7 +98,7 @@ export default {
   },
   created() {
     if (this.exerciseAlreadySaved()) {
-      const [exercise] = this.getOngoingExercises().filter(
+      const [exercise] = this.ongoingExercises.filter(
         exercise => exercise.name === this.exercise.name
       );
       this.weight = exercise.weight;
@@ -119,7 +120,10 @@ export default {
         };
       }
       return null;
-    }
+    },
+    ...mapState({
+      ongoingExercises: state => state.workouts.ongoingWorkout.exercises
+    })
   },
 
   methods: {
@@ -128,14 +132,10 @@ export default {
       this.sets.splice(n, 1, this.sets[n] + 1);
     },
     // helper functions
-    // all exercises from the current workout
-    getOngoingExercises() {
-      return this.$store.getters.ongoingWorkout.exercises;
-    },
 
     // check if the exercise with this name was saved already during the workout
     exerciseAlreadySaved() {
-      this.hasBeenSaved = this.getOngoingExercises().filter(
+      this.hasBeenSaved = this.ongoingExercises.filter(
         exercise => exercise.name === this.exercise.name
       ).length;
       return this.hasBeenSaved;
@@ -143,16 +143,16 @@ export default {
 
     saveExercise(exerciseToSave) {
       if (!this.exerciseAlreadySaved()) {
-        this.$store.dispatch("saveExercises", [
-          ...this.getOngoingExercises(),
+        this.$store.dispatch("workouts/saveExercises", [
+          ...this.ongoingExercises,
           exerciseToSave
         ]);
       } else {
-        const filteredExercises = this.getOngoingExercises().filter(
+        const filteredExercises = this.ongoingExercises.filter(
           exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
         );
 
-        this.$store.dispatch("saveExercises", [
+        this.$store.dispatch("workouts/saveExercises", [
           ...filteredExercises,
           exerciseToSave
         ]);

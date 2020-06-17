@@ -18,15 +18,16 @@
 
 <script>
 import SavedWorkout from "../components/other/SavedWorkout";
+import { mapState } from "vuex";
 export default {
   components: {
     SavedWorkout
   },
 
   computed: {
-    savedWorkouts() {
-      return this.$store.getters.savedWorkouts;
-    }
+    ...mapState({
+      savedWorkouts: state => state.workouts.savedWorkouts
+    })
   }
 };
 </script>

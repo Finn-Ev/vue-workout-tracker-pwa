@@ -27,14 +27,14 @@
 
 <script>
 export default {
-  props: [
-    "showDialog",
-    "title",
-    "textColor",
-    "text",
-    "onconfirmMethod",
-    "confirmText"
-  ],
+  props: {
+    showDialog: Boolean,
+    title: String,
+    textColor: String,
+    text: String,
+    onconfirmMethod: Function,
+    confirmText: String
+  },
 
   computed: {
     dialog() {

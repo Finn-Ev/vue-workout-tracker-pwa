@@ -30,6 +30,7 @@
 
 <script>
 import Dialog from "../components/shared/Dialog";
+import { mapState } from "vuex";
 export default {
   components: {
     Dialog
@@ -40,12 +41,12 @@ export default {
     };
   },
   computed: {
-    savedWorkouts() {
-      return this.$store.getters.savedWorkouts;
-    },
     darkTheme() {
       return this.$vuetify.theme.dark;
-    }
+    },
+    ...mapState({
+      savedWorkouts: state => state.workouts.savedWorkouts
+    })
   },
   methods: {
     toggleTheme() {
@@ -56,7 +57,7 @@ export default {
       );
     },
     clearHistory() {
-      this.$store.dispatch("clearWorkoutHistory");
+      this.$store.dispatch("workouts/clearWorkoutHistory");
       window.location.reload();
     }
   }

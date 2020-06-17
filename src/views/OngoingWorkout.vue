@@ -1,10 +1,15 @@
 <template>
   <div>
-    <v-snackbar v-model="showAlert" color="red" top :timeout="3500">
-      Du musst mindestens eine Übung speichern.
-    </v-snackbar>
+    <Alert
+      :showAlert="showAlert"
+      @closeAlert="showAlert = false"
+      color="red"
+      top
+      :timeout="3500"
+      message="Du musst mindestens eine Übung speichern."
+    />
 
-    <div class="responsive" v-if="workoutId">
+    <div class="responsive" v-if="workouts.ongoingWorkout.id">
       <h3 class=" mt-3 text-center font-weight-regular">
         Aktives Training: {{ activeWorkout.name }}
       </h3>
@@ -70,51 +75,53 @@
 </template>
 
 <script>
-import workouts from "../workout-data/workouts";
+import workoutData from "../workout-data/workouts";
+
 import Exercise from "../components/other/Exercise";
 import Dialog from "../components/shared/Dialog";
+import Alert from "../components/shared/Alert";
+
+import { mapState } from "vuex";
+
 export default {
   components: {
     Exercise,
-    Dialog
+    Dialog,
+    Alert
   },
   data() {
     return {
       dialog: {},
-      workouts,
+      workoutData,
       completedExercises: [],
       showAlert: false
     };
   },
   computed: {
-    workoutId() {
-      return this.$store.getters.ongoingWorkout?.id;
-    },
     activeWorkout() {
-      const [workout] = workouts.filter(
-        workout => workout.id == this.workoutId
+      const [workout] = this.workoutData.filter(
+        workout => workout.id == this.workouts.ongoingWorkout.id
       );
       return workout;
     },
-    savedWorkouts() {
-      return this.$store.getters.savedWorkouts;
-    },
+
     savedExerciseData() {
-      return this.savedWorkouts.filter(
+      return this.workouts.savedWorkouts.filter(
         workout => workout.name == this.activeWorkout.name
       ).length
-        ? this.savedWorkouts.filter(
+        ? this.workouts.savedWorkouts.filter(
             workout => workout.name == this.activeWorkout.name
           )[0].exercises
         : [];
-    }
+    },
+    ...mapState(["workouts"])
   },
   methods: {
     setDialogValues({ ...dialogData }) {
       this.dialog = dialogData;
     },
     finishWorkout() {
-      const ongoingExercises = this.$store.getters.ongoingWorkout.exercises;
+      const ongoingExercises = this.workouts.ongoingWorkout.exercises;
 
       if (!ongoingExercises.length) {
         this.showAlert = true;
@@ -122,7 +129,8 @@ export default {
         return;
       }
 
-      const { startDate } = this.$store.getters.ongoingWorkout;
+      // const { startDate } = this.workouts.ongoingWorkout;
+      const { startDate } = this.workouts.ongoingWorkout;
 
       const workoutToSave = {
         date: Date.now(),
@@ -132,11 +140,11 @@ export default {
         exercises: ongoingExercises
       };
 
-      this.$store.dispatch("saveWorkout", workoutToSave);
+      this.$store.dispatch("workouts/saveWorkout", workoutToSave);
       this.$router.push("/history");
     },
     cancelWorkout() {
-      this.$store.dispatch("cancelWorkout");
+      this.$store.dispatch("workouts/cancelWorkout");
       this.$router.push("/");
     }
   }

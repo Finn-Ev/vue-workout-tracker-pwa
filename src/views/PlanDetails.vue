@@ -8,7 +8,7 @@
 
     <v-container>
       <v-expansion-panels>
-        <v-expansion-panel v-for="workout in workouts" :key="workout.id">
+        <v-expansion-panel v-for="workout in workoutData" :key="workout.id">
           <v-expansion-panel-header>
             {{ workout.name.split("(")[0] }}
             <!-- remove "(PPL)" or "(OKUK)" -->
@@ -42,8 +42,10 @@
 </template>
 
 <script>
-import workouts from "../workout-data/workouts";
+import workoutData from "../workout-data/workouts";
+import { mapState } from "vuex";
 import Dialog from "../components/shared/Dialog";
+
 export default {
   components: {
     Dialog
@@ -57,19 +59,17 @@ export default {
     selectedPlan() {
       return this.$route.params.selectedPlan;
     },
-    workouts() {
-      return workouts.filter(workout => workout.plan === this.selectedPlan);
+    workoutData() {
+      return workoutData.filter(workout => workout.plan === this.selectedPlan);
     },
-    ongoingWorkout() {
-      return this.$store.getters.ongoingWorkout;
-    }
+    ...mapState(["workouts"])
   },
   methods: {
     setCurrentWorkout(id) {
-      if (this.ongoingWorkout.isActive) {
+      if (this.workouts.ongoingWorkout.isActive) {
         this.showDialog = true;
       } else {
-        this.$store.dispatch("mutateOngoingWorkout", {
+        this.$store.dispatch("workouts/mutateOngoingWorkout", {
           isActive: true,
           id,
           startDate: Date.now()

@@ -21,7 +21,7 @@
       </v-expansion-panel>
       <v-expansion-panel class="mt-1">
         <v-expansion-panel-header
-          >Was bedeutet PPL und OKUK?</v-expansion-panel-header
+          >Was bedeuten PPL und OKUK?</v-expansion-panel-header
         >
         <v-expansion-panel-content>
           Beides sind Abkürzungen für Trainingsplits, d.h. in welche Bereiche
