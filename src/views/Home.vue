@@ -17,8 +17,23 @@
       Häufig gestellte Fragen
     </h3>
 
-    <v-expansion-panels>
+    <v-expansion-panels class="mb-4">
       <v-expansion-panel>
+        <v-expansion-panel-header
+          >Wie installiere ich die App auf meinem
+          Handy?</v-expansion-panel-header
+        >
+        <v-expansion-panel-content>
+          Im unteren Bereich des Bildschirm sollte in den meisten Fällen eine
+          Info-Meldung auftauchen "Workout-App zum Startbildschirm hinzufügen".
+          Wenn sie auf diese Meldung klicken, können sie die App installieren.
+          <br />
+          Falls diese Meldung nicht auftaucht, können sie das Menü des Browsers
+          öffnen (meistens oben rechts) und dort auf "Zum Startbildschirm
+          hinzufügen" klicken.
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+      <v-expansion-panel class="mt-1">
         <v-expansion-panel-header
           >Was bedeutet PPL und OKUK?</v-expansion-panel-header
         >
@@ -29,9 +44,9 @@
           und Legs (Beine).
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel class="mt-2">
+      <v-expansion-panel class="mt-1">
         <v-expansion-panel-header
-          >Was ist mit "Intervall gemeint?"</v-expansion-panel-header
+          >Was ist mit "Intervall" gemeint?</v-expansion-panel-header
         >
         <v-expansion-panel-content>
           Die Angabe des Intervalls bestimmt mit welcher Geschwindigkeit eine
