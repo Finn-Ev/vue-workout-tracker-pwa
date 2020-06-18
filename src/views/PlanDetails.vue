@@ -29,7 +29,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-container>
-    <Dialog
+    <!-- <Dialog
       :showDialog="showDialog"
       @hideDialog="showDialog = false"
       confirmText="Zum aktiven Training"
@@ -37,19 +37,16 @@
       textColor="orange"
       text="Bitte beende oder speichere erst das aktive Training"
       :onconfirmMethod="onDialogConfirm"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import workoutData from "../workout-data/workouts";
 import { mapState } from "vuex";
-import Dialog from "../components/other/Dialog";
 
 export default {
-  components: {
-    Dialog
-  },
+  components: {},
   data() {
     return {
       showDialog: false
@@ -67,7 +64,14 @@ export default {
   methods: {
     setCurrentWorkout(id) {
       if (this.workouts.ongoingWorkout.isActive) {
-        this.showDialog = true;
+        this.$store.dispatch("dialog/setDialog", {
+          show: true,
+          title: "Achtung",
+          text: "Du musst erst das aktive Training beenden oder speichern.",
+          textColor: "orange",
+          onconfirmMethod: this.onDialogConfirm,
+          confirmText: "Zum aktiven Training"
+        });
       } else {
         this.$store.dispatch("workouts/mutateOngoingWorkout", {
           isActive: true,
@@ -80,6 +84,7 @@ export default {
     },
     onDialogConfirm() {
       this.$router.push("/ongoing");
+      this.$store.dispatch("dialog/closeDialog");
     }
   }
 };

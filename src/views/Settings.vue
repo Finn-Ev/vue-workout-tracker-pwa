@@ -11,35 +11,31 @@
         <p class="mt-4">
           Gespeicherte Trainingseinheiten: {{ savedWorkouts.length }}
         </p>
-        <v-btn block class="mb-2" color="darkgrey" @click="showDialog = true"
+        <v-btn
+          block
+          class="mb-2"
+          color="darkgrey"
+          :disabled="!savedWorkouts.length"
+          @click="
+            setDialogValues({
+              show: true,
+              title: 'Achtung',
+              text: 'Willst du deinen Trainingsverlauf wirklich löschen?',
+              textColor: 'red',
+              onconfirmMethod: clearHistory,
+              confirmText: 'Verlauf löschen'
+            })
+          "
           >Verlauf löschen</v-btn
         >
-        <Dialog
-          :showDialog="showDialog"
-          @hideDialog="showDialog = false"
-          title="Achtung"
-          textColor="red"
-          confirmText="Verlauf löschen"
-          text="Willst du den Trainingsverlauf wirklich löschen?"
-          :onconfirmMethod="clearHistory"
-        />
       </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
-import Dialog from "../components/other/Dialog";
 import { mapState } from "vuex";
 export default {
-  components: {
-    Dialog
-  },
-  data() {
-    return {
-      showDialog: false
-    };
-  },
   computed: {
     darkTheme() {
       return this.$vuetify.theme.dark;
@@ -56,9 +52,12 @@ export default {
         JSON.stringify({ dark: this.$vuetify.theme.dark })
       );
     },
+    setDialogValues({ ...dialogData }) {
+      this.$store.dispatch("dialog/setDialog", dialogData);
+    },
     clearHistory() {
       this.$store.dispatch("workouts/clearWorkoutHistory");
-      window.location.reload();
+      this.$store.dispatch("dialog/closeDialog");
     }
   }
 };

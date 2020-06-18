@@ -18,7 +18,7 @@
           color="success"
           @click="
             setDialogValues({
-              showDialog: true,
+              show: true,
               title: 'Training speichern?',
               text: 'Willst du das Training wirklich speichern und beenden?',
               textColor: 'green',
@@ -34,7 +34,7 @@
           class="mt-3 white--text"
           @click="
             setDialogValues({
-              showDialog: true,
+              show: true,
               title: 'Achtung',
               text:
                 'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert.',
@@ -43,18 +43,9 @@
               confirmText: 'Training abbrechen'
             })
           "
-          >Training abbrechen</v-btn
         >
-        <Dialog
-          :type="dialog.type"
-          :showDialog="dialog.showDialog"
-          @hideDialog="dialog.showDialog = false"
-          :title="dialog.title"
-          :textColor="dialog.textColor"
-          :text="dialog.text"
-          :onconfirmMethod="dialog.onconfirmMethod"
-          :confirmText="dialog.confirmText"
-        />
+          Training abbrechen
+        </v-btn>
       </div>
     </div>
 
@@ -69,21 +60,16 @@
 import workoutData from "../workout-data/workouts";
 
 import Exercise from "../components/other/Exercise";
-import Dialog from "../components/other/Dialog";
-
 import { mapState } from "vuex";
 
 export default {
   components: {
-    Exercise,
-    Dialog
+    Exercise
   },
   data() {
     return {
-      dialog: {},
       workoutData,
-      completedExercises: [],
-      showAlert: false
+      completedExercises: []
     };
   },
   computed: {
@@ -107,7 +93,7 @@ export default {
   },
   methods: {
     setDialogValues({ ...dialogData }) {
-      this.dialog = dialogData;
+      this.$store.dispatch("dialog/setDialog", dialogData);
     },
     finishWorkout() {
       const ongoingExercises = this.workouts.ongoingWorkout.exercises;
@@ -117,7 +103,7 @@ export default {
           message: "Du musst mindestens eine Übung speichern.",
           color: "red"
         });
-        this.dialog.showDialog = false;
+        this.$store.dispatch("dialog/closeDialog");
         return;
       }
 
@@ -139,10 +125,12 @@ export default {
       });
 
       this.$store.dispatch("workouts/saveWorkout", workoutToSave);
+      this.$store.dispatch("dialog/closeDialog");
       this.$router.push("/history");
     },
     cancelWorkout() {
       this.$store.dispatch("workouts/cancelWorkout");
+      this.$store.dispatch("dialog/closeDialog");
       this.$router.push("/");
     }
   }

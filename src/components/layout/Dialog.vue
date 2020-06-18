@@ -1,22 +1,22 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="dialog" width="500" persistent>
+    <v-dialog v-model="dialog.show" width="500" persistent v-if="dialog.show">
       <v-card>
         <v-card-title class="" primary-title>
-          {{ title }}
+          {{ dialog.title }}
         </v-card-title>
 
         <v-card-text class="mt-3">
-          {{ text }}
+          {{ dialog.text }}
         </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn :color="textColor" text @click="onconfirmMethod">
-            {{ confirmText }}
+          <v-btn :color="dialog.textColor" text @click="dialog.onconfirmMethod">
+            {{ dialog.confirmText }}
           </v-btn>
-          <v-btn class="text--white" text @click="hideDialog">
+          <v-btn class="text--white" text @click="closeDialog">
             Schließen
           </v-btn>
         </v-card-actions>
@@ -26,24 +26,14 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  props: {
-    showDialog: Boolean,
-    title: String,
-    textColor: String,
-    text: String,
-    onconfirmMethod: Function,
-    confirmText: String
-  },
-
   computed: {
-    dialog() {
-      return this.showDialog;
-    }
+    ...mapState("dialog", ["dialog"])
   },
   methods: {
-    hideDialog() {
-      this.$emit("hideDialog");
+    closeDialog() {
+      this.$store.dispatch("dialog/closeDialog");
     }
   }
 };
