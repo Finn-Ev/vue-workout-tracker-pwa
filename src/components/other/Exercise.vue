@@ -20,7 +20,7 @@
           Wiederholungen:
           {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
         </div>
-        <div class="mt-3">
+        <div class="mt-3" v-if="lastTrainingStats.notes">
           <span>Notizen vom letzten Training:</span> <br />
           <span>{{ lastTrainingStats.notes }}</span>
         </div>

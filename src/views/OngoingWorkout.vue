@@ -1,14 +1,5 @@
 <template>
   <div>
-    <Alert
-      :showAlert="showAlert"
-      @closeAlert="showAlert = false"
-      color="red"
-      top
-      :timeout="3500"
-      message="Du musst mindestens eine Übung speichern."
-    />
-
     <div class="responsive" v-if="workouts.ongoingWorkout.id">
       <h3 class=" mt-3 text-center font-weight-regular">
         Aktives Training: {{ activeWorkout.name }}
@@ -78,16 +69,14 @@
 import workoutData from "../workout-data/workouts";
 
 import Exercise from "../components/other/Exercise";
-import Dialog from "../components/shared/Dialog";
-import Alert from "../components/shared/Alert";
+import Dialog from "../components/other/Dialog";
 
 import { mapState } from "vuex";
 
 export default {
   components: {
     Exercise,
-    Dialog,
-    Alert
+    Dialog
   },
   data() {
     return {
@@ -124,7 +113,10 @@ export default {
       const ongoingExercises = this.workouts.ongoingWorkout.exercises;
 
       if (!ongoingExercises.length) {
-        this.showAlert = true;
+        this.$store.dispatch("alerts/setAlert", {
+          message: "Du musst mindestens eine Übung speichern.",
+          color: "red"
+        });
         this.dialog.showDialog = false;
         return;
       }
@@ -139,6 +131,12 @@ export default {
         name: this.activeWorkout.name,
         exercises: ongoingExercises
       };
+
+      this.$store.dispatch("alerts/setAlert", {
+        message: `Das heutige Training ${this.activeWorkout.name} wurde gespeichert`,
+        color: "green",
+        timeout: 2000
+      });
 
       this.$store.dispatch("workouts/saveWorkout", workoutToSave);
       this.$router.push("/history");

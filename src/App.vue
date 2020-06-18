@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <AlertContainer />
     <v-content>
       <router-view />
     </v-content>
@@ -9,10 +10,12 @@
 
 <script>
 import BottomNavbar from "./components/layout/BottomNavbar";
+import AlertContainer from "./components/other/AlertContainer";
 export default {
   name: "App",
   components: {
-    BottomNavbar
+    BottomNavbar,
+    AlertContainer
   },
   data: () => ({
     //

@@ -44,7 +44,7 @@
 <script>
 import workoutData from "../workout-data/workouts";
 import { mapState } from "vuex";
-import Dialog from "../components/shared/Dialog";
+import Dialog from "../components/other/Dialog";
 
 export default {
   components: {

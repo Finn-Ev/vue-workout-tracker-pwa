@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Dialog from "../components/shared/Dialog";
+import Dialog from "../components/other/Dialog";
 import { mapState } from "vuex";
 export default {
   components: {

@@ -24,14 +24,12 @@
 export default {
   data() {
     return {
-      activeWorkout: false
+      activeWorkout: this.checkActiveWorkout()
     };
   },
 
   methods: {
     checkActiveWorkout() {
-      console.log(this.$store.state);
-
       this.activeWorkout = this.$store.state.workouts.ongoingWorkout.isActive;
     }
   },
