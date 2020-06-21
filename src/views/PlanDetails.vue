@@ -7,7 +7,7 @@
     </h2>
 
     <v-container>
-      <v-expansion-panels>
+      <!-- <v-expansion-panels>
         <v-expansion-panel>
           <v-expansion-panel-header>Infos zum Plan</v-expansion-panel-header>
           <v-expansion-panel-content>
@@ -16,7 +16,7 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-      <h3 class="text-center font-weight-regular my-2">Einheiten</h3>
+      <h3 class="text-center font-weight-regular my-2">Einheiten</h3> -->
       <v-expansion-panels>
         <v-expansion-panel v-for="workout in workoutData" :key="workout.id">
           <v-expansion-panel-header>
