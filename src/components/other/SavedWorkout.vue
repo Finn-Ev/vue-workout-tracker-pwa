@@ -39,8 +39,8 @@ export default {
     return {
       showDetails: false,
       tableHeaders: [
-        { text: "Übung", value: "name", align: "start", sortable: false },
-        { text: "Sätze", value: "sets" },
+        { text: "Übung", value: "name" },
+        { text: "Wiederholungen", value: "sets" },
         { text: "Gewicht", value: "weight" }
       ]
     };
@@ -82,6 +82,9 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 94%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .rotate {

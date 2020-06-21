@@ -1,6 +1,8 @@
 <template>
   <v-snackbar v-model="showAlert" :color="color" top>
-    {{ message }}
+    <p class="alert-content">
+      {{ message }}
+    </p>
   </v-snackbar>
 </template>
 
@@ -28,4 +30,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.alert-content {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px !important;
+}
+</style>

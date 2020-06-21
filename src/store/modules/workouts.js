@@ -35,7 +35,6 @@ export const mutations = {
 export const actions = {
   saveWorkout({ commit }, workout) {
     commit("SAVE_WORKOUT", workout);
-    // dispatch("dialog/closeDialog", null, { root: true });
   },
   saveExercises({ commit }, exercises) {
     commit("SAVE_EXERCISES", exercises);
@@ -45,18 +44,8 @@ export const actions = {
   },
   cancelWorkout({ commit }) {
     commit("CANCEL_WORKOUT");
-    // dispatch("dialog/closeDialog", null, { root: true });
   },
   clearWorkoutHistory({ commit }) {
     commit("CLEAR_WORKOUT_HISTORY");
-  }
-};
-
-export const getters = {
-  ongoingWorkout(state) {
-    return state.ongoingWorkout;
-  },
-  savedWorkouts(state) {
-    return state.savedWorkouts;
   }
 };

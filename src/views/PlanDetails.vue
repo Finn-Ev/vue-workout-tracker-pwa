@@ -8,6 +8,16 @@
 
     <v-container>
       <v-expansion-panels>
+        <v-expansion-panel>
+          <v-expansion-panel-header>Infos zum Plan</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <p>Merkmale des Plans:</p>
+            <p>Optimaler Trainingszyklus:</p>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+      <h3 class="text-center font-weight-regular my-2">Einheiten</h3>
+      <v-expansion-panels>
         <v-expansion-panel v-for="workout in workoutData" :key="workout.id">
           <v-expansion-panel-header>
             {{ workout.name.split("(")[0] }}
@@ -29,15 +39,6 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-container>
-    <!-- <Dialog
-      :showDialog="showDialog"
-      @hideDialog="showDialog = false"
-      confirmText="Zum aktiven Training"
-      title="Achtung"
-      textColor="orange"
-      text="Bitte beende oder speichere erst das aktive Training"
-      :onconfirmMethod="onDialogConfirm"
-    /> -->
   </div>
 </template>
 

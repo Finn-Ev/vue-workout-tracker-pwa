@@ -11,8 +11,8 @@
 
 <script>
 import BottomNavbar from "./components/layout/BottomNavbar";
-import AlertContainer from "./components/layout/AlertContainer";
-import Dialog from "./components/layout/Dialog";
+import AlertContainer from "./components/utils/AlertContainer";
+import Dialog from "./components/utils/Dialog";
 export default {
   name: "App",
   components: {

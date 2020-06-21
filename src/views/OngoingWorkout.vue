@@ -101,7 +101,8 @@ export default {
       if (!ongoingExercises.length) {
         this.$store.dispatch("alerts/setAlert", {
           message: "Du musst mindestens eine Übung speichern.",
-          color: "red"
+          color: "red",
+          timeout: 3000
         });
         this.$store.dispatch("dialog/closeDialog");
         return;
@@ -119,11 +120,10 @@ export default {
       };
 
       this.$store.dispatch("alerts/setAlert", {
-        message: `Das heutige Training ${this.activeWorkout.name} wurde gespeichert`,
+        message: `Das heutige Training "${this.activeWorkout.name}" wurde gespeichert`,
         color: "green",
-        timeout: 2000
+        timeout: 4000
       });
-
       this.$store.dispatch("workouts/saveWorkout", workoutToSave);
       this.$store.dispatch("dialog/closeDialog");
       this.$router.push("/history");

@@ -24,7 +24,7 @@
 export default {
   data() {
     return {
-      activeWorkout: this.checkActiveWorkout()
+      activeWorkout: false
     };
   },
 
@@ -39,6 +39,9 @@ export default {
         this.checkActiveWorkout();
       }
     }
+  },
+  created() {
+    this.checkActiveWorkout();
   }
 };
 </script>

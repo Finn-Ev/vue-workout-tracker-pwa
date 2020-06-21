@@ -67,7 +67,7 @@
           @click="
             saveExercise({
               name: exercise.name,
-              sets,
+              sets: sets.filter(set => set !== 0),
               weight: weight ? weight : 0,
               notes: notes ? notes : ''
             })
@@ -88,17 +88,17 @@ export default {
   props: ["exercise", "idx", "savedExerciseData"],
   data() {
     return {
+      sets: [0, 0, 0, 0],
       weight: null,
       notes: "",
-      sets: [0, 0, 0, 0],
+      showNotesTextField: false,
       edit: false,
-      hasBeenSaved: false,
-      showNotesTextField: false
+      hasBeenSaved: false
     };
   },
   created() {
     if (this.exerciseAlreadySaved()) {
-      const [exercise] = this.ongoingExercises.filter(
+      const [exercise] = this.ongoingWorkout.exercises.filter(
         exercise => exercise.name === this.exercise.name
       );
       this.weight = exercise.weight;
@@ -121,9 +121,7 @@ export default {
       }
       return null;
     },
-    ...mapState({
-      ongoingExercises: state => state.workouts.ongoingWorkout.exercises
-    })
+    ...mapState("workouts", ["ongoingWorkout"])
   },
 
   methods: {
@@ -131,32 +129,38 @@ export default {
       if (this.sets[n] >= reps * 1.5) return this.sets.splice(n, 1, 1);
       this.sets.splice(n, 1, this.sets[n] + 1);
     },
-    // helper functions
 
     // check if the exercise with this name was saved already during the workout
     exerciseAlreadySaved() {
-      this.hasBeenSaved = this.ongoingExercises.filter(
+      this.hasBeenSaved = this.ongoingWorkout.exercises.filter(
         exercise => exercise.name === this.exercise.name
       ).length;
       return this.hasBeenSaved;
     },
 
     saveExercise(exerciseToSave) {
+      if (!exerciseToSave.sets.length)
+        return this.$store.dispatch("alerts/setAlert", {
+          message: `Du musst mindestens einen Satz abschließen um eine Übung speichern zu können`,
+          color: "orange",
+          timeout: 3000
+        });
       if (!this.exerciseAlreadySaved()) {
         this.$store.dispatch("workouts/saveExercises", [
-          ...this.ongoingExercises,
+          ...this.ongoingWorkout.exercises,
           exerciseToSave
         ]);
       } else {
-        const filteredExercises = this.ongoingExercises.filter(
+        const filteredExercises = this.ongoingWorkout.exercises.filter(
           exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
         );
 
         this.$store.dispatch("workouts/saveExercises", [
           ...filteredExercises,
-          exerciseToSave
+          exerciseToSave // save the new version of the exercise
         ]);
       }
+
       this.hasBeenSaved = true;
       this.edit = false;
     }
