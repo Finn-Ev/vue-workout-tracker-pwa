@@ -13,7 +13,7 @@
         :savedExerciseData="savedExerciseData"
       />
 
-      <div class="buttons mt-1 mb-3">
+      <div class="buttons mx-2 mt-1 mb-3">
         <v-btn
           color="success"
           @click="
