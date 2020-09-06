@@ -10,12 +10,12 @@
       <v-card-subtitle>
         <div>Wiederholungen: {{ exercise.sets }} x {{ exercise.reps }}</div>
         <div>Pause: {{ exercise.pause }} min.</div>
-        <div>Intervall: {{ exercise.intervall }}</div>
+        <!-- <div>Intervall: {{ exercise.intervall }}</div> -->
       </v-card-subtitle>
 
       <v-card-text v-if="lastTrainingStats">
         <h4>Stats vom letzten Training:</h4>
-        <div>Genutztes Gewicht: {{ lastTrainingStats.weight }}</div>
+        <!-- <div>Genutztes Gewicht: {{ lastTrainingStats.weight }}</div> -->
         <div>
           Wiederholungen:
           {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
@@ -27,12 +27,12 @@
       </v-card-text>
 
       <v-card-text>
-        <v-text-field
+        <!-- <v-text-field
           v-model="weight"
           aria-autocomplete="false"
           type="number"
           label="Genutztes Gewicht in Kg"
-        />
+        /> -->
         <div class="button-wrapper">
           <div>
             <v-btn

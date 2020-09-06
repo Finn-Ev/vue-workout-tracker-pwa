@@ -40,18 +40,20 @@ export default {
       showDetails: false,
       tableHeaders: [
         { text: "Übung", value: "name" },
-        { text: "Wiederholungen", value: "sets" },
-        { text: "Gewicht", value: "weight" }
+        { text: "Wiederholungen", value: "sets" }
+        // { text: "Gewicht", value: "weight" }
       ]
     };
   },
   computed: {
     tableItems() {
-      const tableItems = this.workout.exercises.map(exercise => ({
-        name: exercise.name,
-        sets: exercise.sets.toString().replace(/,/g, "/"),
-        weight: exercise.weight + " Kg"
-      }));
+      const tableItems = this.workout.exercises
+        .map(exercise => ({
+          name: exercise.name,
+          sets: exercise.sets.toString().replace(/,/g, "/")
+          //  weight: exercise.weight + " Kg"
+        }))
+        .reverse();
       return tableItems;
     }
   },
