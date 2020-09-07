@@ -108,7 +108,6 @@ export default {
         return;
       }
 
-      // const { startDate } = this.workouts.ongoingWorkout;
       const { startDate } = this.workouts.ongoingWorkout;
 
       const workoutToSave = {

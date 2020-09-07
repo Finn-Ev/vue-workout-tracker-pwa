@@ -3,27 +3,28 @@
     <h2 class="text-center font-weight-regular mt-3">Workout-App</h2>
     <v-card class=" my-3 py-3">
       <p class="px-2 text-center font-weight-light">
-        Diese App bietet aktuell zwei verschiedene Trainingspläne. Die
+        Diese App bietet aktuell vier verschiedene Trainingspläne. Die
         Reihenfolge und Frequenz der Trainingseinheiten können beliebig gewählt
         werden.
         <!-- Es wird jedoch zu jedem Plan ein sinnvoller möglicher Wochenplan
         angezeigt.  -->
+        <!-- Sinnvoll ist es nicht andauernd zwischen den Plänen zu wechseln sondern
+        sich konstant von Training zu Training eines Plans zu steigern. -->
         <br />
         <br />
-        Sinnvoll ist es nicht andauernd zwischen den Plänen zu wechseln sondern
-        sich konstant von Training zu Training eines Plans zu steigern.
+        Weitere Erläuterungen folgen...
       </p>
       <v-btn class="plan-button" to="/plans">Zu den Plänen</v-btn>
     </v-card>
-    <FAQ />
+    <!-- <FAQ /> -->
   </div>
 </template>
 
 <script>
-import FAQ from "../components/other/FAQ";
+// import FAQ from "../components/other/FAQ";
 export default {
   components: {
-    FAQ
+    // FAQ
   },
   name: "Home"
 };

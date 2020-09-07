@@ -6,6 +6,7 @@
       <router-view />
     </v-content>
     <BottomNavbar />
+    <!-- <Timer /> -->
   </v-app>
 </template>
 
@@ -13,12 +14,14 @@
 import BottomNavbar from "./components/layout/BottomNavbar";
 import AlertContainer from "./components/utils/AlertContainer";
 import Dialog from "./components/utils/Dialog";
+// import Timer from "./components/other/Timer";
 export default {
   name: "App",
   components: {
     BottomNavbar,
     AlertContainer,
     Dialog
+    // Timer
   },
   data: () => ({
     //

@@ -1,9 +1,7 @@
 <template>
   <div class="plan-details responsive">
     <h2 class="mt-3 text-center font-weight-regular">
-      {{
-        selectedPlan === "ppl" ? "Push Pull Legs" : "Oberkörper / Unterkörper"
-      }}
+      {{ selectedPlan === "planche" ? "Planche" : "Front-Lever" }}
     </h2>
 
     <v-container>
