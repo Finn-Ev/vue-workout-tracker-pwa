@@ -50,7 +50,7 @@ export default {
       const tableItems = this.workout.exercises.map(exercise => ({
         name: exercise.name,
         sets: exercise.sets.toString().replace(/,/g, "/"),
-        weight: exercise.weight ? exercise.weight + " Kg" : ""
+        weight: exercise.weight ? exercise.weight : "/"
       }));
       return tableItems;
     }

@@ -7,12 +7,12 @@
       <v-row>
         <PlanPreview
           title="Push Pull Legs"
-          description="6 Planche Einheiten pro Woche"
+          description="6 Einheiten pro Woche"
           url="ppl"
         />
         <PlanPreview
           title="Oberkörper / Unterkörper"
-          description="4 Front-Lever Einheiten pro Woche"
+          description="4 Einheiten pro Woche"
           url="okuk"
         />
         <PlanPreview

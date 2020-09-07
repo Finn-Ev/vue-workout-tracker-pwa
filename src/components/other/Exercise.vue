@@ -70,8 +70,8 @@
           @click="
             saveExercise({
               name: exercise.name,
-              sets: sets.filter(set => set !== 0),
-              weight: weight ? weight : 0,
+              sets,
+              weight: weight ? weight : null,
               notes: notes ? notes : ''
             })
           "
