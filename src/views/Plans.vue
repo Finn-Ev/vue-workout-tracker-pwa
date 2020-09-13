@@ -6,6 +6,16 @@
     <v-container>
       <v-row>
         <PlanPreview
+          title="Planche"
+          description="2 Planche Einheiten pro Woche"
+          url="planche"
+        />
+        <PlanPreview
+          title="Front Lever"
+          description="2 Front-Lever Einheiten pro Woche. "
+          url="front-lever"
+        />
+        <!-- <PlanPreview
           title="Push Pull Legs"
           description="6 Einheiten pro Woche"
           url="ppl"
@@ -14,17 +24,7 @@
           title="Oberkörper / Unterkörper"
           description="4 Einheiten pro Woche"
           url="okuk"
-        />
-        <PlanPreview
-          title="Planche"
-          description="3 Planche Einheiten pro Woche"
-          url="planche"
-        />
-        <PlanPreview
-          title="Front Lever"
-          description="2 Front-Lever Einheiten pro Woche"
-          url="front-lever"
-        />
+        /> -->
       </v-row>
     </v-container>
   </div>
