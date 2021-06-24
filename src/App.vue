@@ -22,6 +22,11 @@ export default {
     Dialog
   },
   data: () => ({}),
+  mounted() {
+    if (JSON.parse(localStorage.getItem("theme")).dark) {
+      document.querySelector("body").style.background = "#121212";
+    }
+  },
   computed: {}
 };
 </script>

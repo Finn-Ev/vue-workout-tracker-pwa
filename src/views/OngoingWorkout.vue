@@ -49,8 +49,10 @@
       </div>
     </div>
 
-    <div class="content" v-else>
-      Kein aktives Training vorhanden
+    <div class="content d-flex flex-column mx-5 mt-5 align-center" v-else>
+      <div class="mb-3">
+        Kein aktives Training vorhanden
+      </div>
       <v-btn to="/plans">Zu den Plänen</v-btn>
     </div>
   </div>
