@@ -28,7 +28,7 @@
           {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
         </div>
         <div class="mt-3" v-if="lastTrainingStats.notes">
-          <div>Notizen vom letzten Training:</div>
+          <h4>Notizen vom letzten Training:</h4>
           <div>{{ lastTrainingStats.notes }}</div>
         </div>
       </v-card-text>
