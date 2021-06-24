@@ -10,7 +10,7 @@
           {{ dialog.text }}
         </v-card-text>
 
-        <v-divider></v-divider>
+        <v-divider />
 
         <v-card-actions>
           <v-btn :color="dialog.textColor" text @click="dialog.onconfirmMethod">

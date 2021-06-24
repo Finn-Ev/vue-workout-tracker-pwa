@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="responsive" v-if="workouts.ongoingWorkout.id">
-      <h3 class=" mt-3 text-center font-weight-regular">
+    <div class="content" v-if="workouts.ongoingWorkout.id">
+      <h3 class="mt-3 text-center font-weight-regular">
         Aktives Training: {{ activeWorkout.name }}
       </h3>
-      <Exercise
+      <exercise
         class="mt-3 mx-2"
         v-for="(exercise, idx) in activeWorkout.exercises"
         :key="exercise.name"
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div v-else>
+    <div class="content" v-else>
       Kein aktives Training vorhanden
       <v-btn to="/plans">Zu den Plänen</v-btn>
     </div>
@@ -59,7 +59,7 @@
 <script>
 import workoutData from "../workout-data/workouts";
 
-import Exercise from "../components/other/Exercise";
+import Exercise from "../components/Exercise";
 import { mapState } from "vuex";
 
 export default {
@@ -81,13 +81,11 @@ export default {
     },
 
     savedExerciseData() {
-      return this.workouts.savedWorkouts.filter(
-        workout => workout.name == this.activeWorkout.name
-      ).length
-        ? this.workouts.savedWorkouts.filter(
-            workout => workout.name == this.activeWorkout.name
-          )[0].exercises
-        : [];
+      return (
+        this.workouts.savedWorkouts.filter(
+          workout => workout.name == this.activeWorkout.name
+        )[0]?.exercises ?? []
+      );
     },
     ...mapState(["workouts"])
   },

@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from "vuex";
-import Alert from "../other/Alert";
+import Alert from "./Alert";
 export default {
   components: {
     Alert
@@ -23,5 +23,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

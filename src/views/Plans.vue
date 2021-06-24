@@ -1,11 +1,11 @@
 <template>
-  <div class="plans responsive" style="maxWidth: 800px">
-    <h2 class="mt-3 text-center font-weight-regular">
+  <div class="plans content" style="maxWidth: 800px">
+    <h2 class="mt-4 text-center font-weight-regular">
       Verfügbare Trainingspläne
     </h2>
     <v-container>
       <v-row>
-        <PlanPreview
+        <!-- <PlanPreview
           title="Planche"
           description="2 Planche Einheiten pro Woche"
           url="planche"
@@ -14,29 +14,27 @@
           title="Front Lever"
           description="2 Front-Lever Einheiten pro Woche. "
           url="front-lever"
-        />
-        <!-- <PlanPreview
+        /> -->
+        <plan-preview
           title="Push Pull Legs"
           description="6 Einheiten pro Woche"
           url="ppl"
         />
-        <PlanPreview
+        <plan-preview
           title="Oberkörper / Unterkörper"
           description="4 Einheiten pro Woche"
           url="okuk"
-        /> -->
+        />
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import PlanPreview from "../components/other/PlanPreview";
+import PlanPreview from "../components/PlanPreview";
 export default {
   data() {
-    return {
-      //
-    };
+    return {};
   },
   components: {
     PlanPreview

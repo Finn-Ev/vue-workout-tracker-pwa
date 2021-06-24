@@ -11,21 +11,17 @@
 </template>
 
 <script>
-import BottomNavbar from "./components/layout/BottomNavbar";
-import AlertContainer from "./components/utils/AlertContainer";
-import Dialog from "./components/utils/Dialog";
-// import Timer from "./components/other/Timer";
+import BottomNavbar from "./components/BottomNavbar";
+import AlertContainer from "./components/AlertContainer";
+import Dialog from "./components/Dialog";
 export default {
   name: "App",
   components: {
     BottomNavbar,
     AlertContainer,
     Dialog
-    // Timer
   },
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
   computed: {}
 };
 </script>
@@ -36,7 +32,16 @@ export default {
   flex-direction: column;
 }
 
-.responsive {
+.v-ripple__container {
+  display: none; // disable ripple
+}
+
+.v-btn__content {
+  text-transform: none;
+  font-size: 1rem;
+}
+
+.content {
   max-width: 600px;
   margin: auto;
 }

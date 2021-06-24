@@ -1,13 +1,13 @@
 <template>
-  <div class="responsive">
-    <h2 class="text-center font-weight-regular my-3">Einstellungen</h2>
+  <div class="content">
+    <h2 class="text-center font-weight-regular my-4">Einstellungen</h2>
     <v-card class="mx-2">
       <v-card-text>
         <p>Aktives Theme: {{ darkTheme ? "Dunkel" : "Hell" }}</p>
         <v-btn block class="mb-4" color="darkgrey" @click="toggleTheme"
-          >Theme wechseln</v-btn
-        >
-        <v-divider></v-divider>
+          >Theme wechseln
+        </v-btn>
+        <v-divider />
         <p class="mt-4">
           Gespeicherte Trainingseinheiten: {{ savedWorkouts.length }}
         </p>

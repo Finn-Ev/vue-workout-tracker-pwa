@@ -3,7 +3,7 @@
     <v-card-title @click="edit = !edit"
       >{{ idx + 1 }}. {{ exercise.name }}
 
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-icon color="success" v-if="hasBeenSaved">{{ "mdi-check" }}</v-icon>
     </v-card-title>
     <div v-if="!hasBeenSaved || edit">
@@ -15,16 +15,21 @@
 
       <v-card-text v-if="lastTrainingStats">
         <h4>Stats vom letzten Training:</h4>
-        <div v-if="lastTrainingStats.weight !== '0 Kg'">
-          Genutztes Gewicht: {{ lastTrainingStats.weight }}
+        <div>
+          Genutztes Gewicht:
+          {{
+            lastTrainingStats.weight.includes("null")
+              ? "0 Kg"
+              : lastTrainingStats.weight
+          }}
         </div>
         <div>
           Wiederholungen:
           {{ lastTrainingStats.sets.toString().replace(/,/g, "/") }}
         </div>
         <div class="mt-3" v-if="lastTrainingStats.notes">
-          <span>Notizen vom letzten Training:</span> <br />
-          <span>{{ lastTrainingStats.notes }}</span>
+          <div>Notizen vom letzten Training:</div>
+          <div>{{ lastTrainingStats.notes }}</div>
         </div>
       </v-card-text>
 
@@ -36,19 +41,21 @@
           type="number"
           label="Genutztes Gewicht in Kg"
         />
-        <div class="button-wrapper">
+        <div class="d-flex justify-space-between">
           <div>
             <v-btn
               class="mr-2 my-1"
               @click="changeSetValue(n - 1, exercise.reps)"
               v-for="n in exercise.sets"
               :key="n"
+              tag="div"
               >{{ sets[n - 1] }}</v-btn
             >
           </div>
 
           <v-icon
             class="notes-icon"
+            style="touch-action: manipulation;"
             @click="showNotesTextField = !showNotesTextField"
           >
             mdi-text
@@ -75,11 +82,13 @@
               notes: notes ? notes : ''
             })
           "
+          style="touch-action: manipulation"
           text
           block
+          tag="div"
           color="success"
-          >{{ hasBeenSaved ? "Bestätigen" : "Übung speichern" }}</v-btn
-        >
+          >{{ hasBeenSaved ? "Bestätigen" : "Übung speichern" }}
+        </v-btn>
       </v-card-actions>
     </div>
   </v-card>
@@ -172,11 +181,10 @@ export default {
 </script>
 
 <style lang="scss">
-.button-wrapper {
-  display: flex;
-  justify-content: space-between;
+.v-btn {
+  cursor: pointer !important;
 }
 .mdi-text::after {
-  background-color: rgba($color: #000000, $alpha: 0) !important;
+  background-color: rgba($color: #000, $alpha: 0) !important;
 }
 </style>

@@ -1,24 +1,17 @@
 <template>
-  <div class="plan-details responsive">
+  <div class="plan-details content">
     <h2 class="mt-3 text-center font-weight-regular">
-      {{ selectedPlan === "planche" ? "Planche" : "Front-Lever" }}
+      {{ selectedPlanName }}
     </h2>
 
     <v-container>
-      <!-- <v-expansion-panels>
-        <v-expansion-panel>
-          <v-expansion-panel-header>Infos zum Plan</v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <p>Merkmale des Plans:</p>
-            <p>Optimaler Trainingszyklus:</p>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
-      <h3 class="text-center font-weight-regular my-2">Einheiten</h3> -->
       <v-expansion-panels>
-        <v-expansion-panel v-for="workout in workoutData" :key="workout.id">
+        <v-expansion-panel
+          v-for="(workout, idx) in workoutData"
+          :key="workout.id"
+        >
           <v-expansion-panel-header>
-            {{ workout.name.split("(")[0] }}
+            {{ `${++idx}. ${workout.name.split("(")[0]}` }}
             <!-- remove "(PPL)" or "(OKUK)" -->
           </v-expansion-panel-header>
           <v-expansion-panel-content>
@@ -52,6 +45,27 @@ export default {
     };
   },
   computed: {
+    selectedPlanName() {
+      let name;
+      switch (this.$route.params.selectedPlan) {
+        case "ppl":
+          name = "Push Pull Legs";
+          break;
+        case "okuk":
+          name = "Oberkörper / Unterkörper";
+          break;
+        case "planche":
+          name = "Planche";
+          break;
+        case "front-lever":
+          name = "Front Lever";
+          break;
+        default:
+          break;
+      }
+
+      return name;
+    },
     selectedPlan() {
       return this.$route.params.selectedPlan;
     },
@@ -88,5 +102,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

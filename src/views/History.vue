@@ -1,5 +1,5 @@
 <template>
-  <div class="responsive">
+  <div class="content">
     <h2 class="mt-3 text-center font-weight-regular">Verlauf</h2>
     <div v-if="savedWorkouts.length">
       <SavedWorkout
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import SavedWorkout from "../components/other/SavedWorkout";
+import SavedWorkout from "../components/SavedWorkout";
 import { mapState } from "vuex";
 export default {
   components: {
