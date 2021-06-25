@@ -18,12 +18,12 @@
         <plan-preview
           title="Push Pull Legs"
           description="6 Einheiten pro Woche"
-          url="ppl"
+          plan-id="ppl"
         />
         <plan-preview
           title="Oberkörper / Unterkörper"
           description="4 Einheiten pro Woche"
-          url="okuk"
+          plan-id="okuk"
         />
       </v-row>
     </v-container>

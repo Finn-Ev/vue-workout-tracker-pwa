@@ -28,6 +28,17 @@
           "
           >Verlauf löschen</v-btn
         >
+        <v-divider />
+        <p class="mt-4" style="height: 1rem">
+          &nbsp;
+        </p>
+        <v-btn
+          block
+          class="mb-2"
+          color="darkgrey"
+          @click="handleResetAppRequest"
+          >Anwendung zurücksetzen</v-btn
+        >
       </v-card-text>
     </v-card>
   </div>
@@ -52,6 +63,21 @@ export default {
         JSON.stringify({ dark: this.$vuetify.theme.dark })
       );
     },
+    handleResetAppRequest() {
+      this.$store.dispatch("dialog/setDialog", {
+        show: true,
+        title: "Achtung",
+        text: "Möchtest du wirklich sämtliche Daten der App löschen?",
+        textColor: "red",
+        onconfirmMethod: this.resetWorkoutStateApp,
+        confirmText: `Alles zurücksetzen`
+      });
+    },
+    resetWorkoutStateApp() {
+      this.$store.dispatch("workouts/clearWorkoutState");
+      this.$store.dispatch("dialog/closeDialog");
+      this.$router.push("/");
+    },
     setDialogValues({ ...dialogData }) {
       this.$store.dispatch("dialog/setDialog", dialogData);
     },
@@ -69,9 +95,4 @@ button {
   font-size: 1rem;
   font-weight: 400 !important;
 }
-// button {
-//   border: lightgrey solid 1px;
-//   padding: 5px;
-//   border-radius: 5px;
-// }
 </style>

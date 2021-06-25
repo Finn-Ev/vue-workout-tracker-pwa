@@ -20,7 +20,7 @@
             </p>
 
             <v-btn
-              @click="setCurrentWorkout(workout.id)"
+              @click="handleSelectWorkout(workout.id)"
               block
               text
               color="success"
@@ -30,12 +30,23 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-container>
+    <div class="d-flex justify-center">
+      <v-btn
+        to="/plans"
+        text
+        tag="h3"
+        class="mt-3 text-center font-weight-regular"
+      >
+        &#8592;&nbsp;Zu den Plänen
+      </v-btn>
+    </div>
   </div>
 </template>
 
 <script>
 import workoutData from "../workout-data/workouts";
 import { mapState } from "vuex";
+import planData from "../mixins/planData";
 
 export default {
   components: {},
@@ -45,60 +56,62 @@ export default {
     };
   },
   computed: {
-    selectedPlanName() {
-      let name;
-      switch (this.$route.params.selectedPlan) {
-        case "ppl":
-          name = "Push Pull Legs";
-          break;
-        case "okuk":
-          name = "Oberkörper / Unterkörper";
-          break;
-        case "planche":
-          name = "Planche";
-          break;
-        case "front-lever":
-          name = "Front Lever";
-          break;
-        default:
-          break;
-      }
-
-      return name;
-    },
     selectedPlan() {
       return this.$route.params.selectedPlan;
     },
     workoutData() {
-      return workoutData.filter(workout => workout.plan === this.selectedPlan);
+      return workoutData.filter(
+        workout => workout.plan === this.$route.params.selectedPlan
+      );
     },
     ...mapState(["workouts"])
   },
   methods: {
-    setCurrentWorkout(id) {
+    handleSelectWorkout(id) {
       if (this.workouts.ongoingWorkout.isActive) {
         this.$store.dispatch("dialog/setDialog", {
           show: true,
           title: "Achtung",
           text: "Du musst erst das aktive Training beenden oder speichern.",
           textColor: "orange",
-          onconfirmMethod: this.onDialogConfirm,
+          onconfirmMethod: () => {
+            this.$router.push("/ongoing");
+            this.$store.dispatch("dialog/closeDialog");
+          },
           confirmText: "Zum aktiven Training"
         });
       } else {
-        this.$store.dispatch("workouts/mutateOngoingWorkout", {
-          isActive: true,
-          id,
-          startDate: Date.now()
-        });
-
-        this.$router.push("/ongoing");
+        if (
+          this.workouts.activePlan &&
+          this.workouts.activePlan !== this.selectedPlan
+        ) {
+          this.$store.dispatch("dialog/setDialog", {
+            show: true,
+            title: "Achtung",
+            text: `Du hast bereits ${this.workouts.activePlan} als aktiven Plan`,
+            textColor: "orange",
+            onconfirmMethod: () => {
+              this.$store.dispatch("dialog/closeDialog");
+              this.startWorkout(id);
+            },
+            confirmText: `${this.selectedPlanName} zum aktiven Plan machen und Trainingsverlauf löschen`
+          });
+        } else {
+          this.startWorkout(id);
+        }
       }
     },
-    onDialogConfirm() {
+    startWorkout(id) {
+      this.$store.dispatch("workouts/setActivePlan", this.selectedPlan);
+      this.$store.dispatch("workouts/clearWorkoutHistory");
+      this.$store.dispatch("workouts/mutateOngoingWorkout", {
+        isActive: true,
+        id,
+        startDate: Date.now()
+      });
       this.$router.push("/ongoing");
-      this.$store.dispatch("dialog/closeDialog");
     }
-  }
+  },
+  mixins: [planData]
 };
 </script>

@@ -23,7 +23,7 @@ export default {
   },
   data: () => ({}),
   mounted() {
-    if (JSON.parse(localStorage.getItem("theme")).dark) {
+    if (JSON.parse(localStorage.getItem("theme"))?.dark) {
       document.querySelector("body").style.background = "#121212";
     }
   },
@@ -31,6 +31,15 @@ export default {
 };
 </script>
 <style lang="scss">
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+.vh-100 {
+  height: 100vh;
+}
 .buttons {
   display: flex;
   justify-content: center;

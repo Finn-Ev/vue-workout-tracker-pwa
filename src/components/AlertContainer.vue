@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Alert
+    <alert
       v-for="alert in alerts"
       :key="alert.id"
       :id="alert.id"

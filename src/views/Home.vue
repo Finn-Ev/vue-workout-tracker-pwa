@@ -1,16 +1,34 @@
 <template>
   <div class="home content">
     <h2 class="text-center font-weight-regular mt-3">Workout-App</h2>
-    <v-card class=" my-3 py-3">
+
+    <v-card class="my-3 py-3">
       <p class="px-2 text-center font-weight-light">
         Diese App bietet aktuell vier verschiedene Trainingspläne. Die
         Reihenfolge und Frequenz der Trainingseinheiten können beliebig gewählt
-        werden. Es wird jedoch zu jedem Plan ein sinnvoller möglicher Wochenplan
-        angezeigt. <br />
+        werden. <br />
         Sinnvoll ist es, nicht andauernd zwischen den Plänen zu wechseln sondern
         sich konstant von Training zu Training eines Plans zu steigern.
       </p>
       <v-btn class="plan-button" to="/plans">Zu den Plänen</v-btn>
+    </v-card>
+    <v-card class="current-plan-section py-2" v-if="activePlanName">
+      <h3 class="text-center font-weight-regular my-3">
+        Aktiver Plan: {{ activePlanName }}
+        <div class="d-flex flex-column">
+          <div class="my-3">
+            <v-btn :to="activePlanUrl" link>Zum Plan</v-btn>
+          </div>
+          <div>
+            <v-btn v-if="hasActiveWorkout" to="/ongoing"
+              >Zum aktiven Workout
+            </v-btn>
+            <v-btn v-else @click="startNextWorkout"
+              >Nächstes Workout starten
+            </v-btn>
+          </div>
+        </div>
+      </h3>
     </v-card>
     <template>
       <div>
@@ -68,9 +86,47 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import planDataMixin from "../mixins/planData";
+import workouts from "../workout-data/workouts";
+
 export default {
+  name: "Home",
   components: {},
-  name: "Home"
+  computed: {
+    ...mapState({
+      savedWorkouts: state => state.workouts.savedWorkouts,
+      hasActiveWorkout: state => state.workouts.ongoingWorkout.isActive,
+      activePlanId: state => state.workouts.activePlan
+    })
+  },
+
+  methods: {
+    startNextWorkout() {
+      const workoutsFromCurrentPlan = workouts.filter(
+        workout => workout.plan === this.activePlanId
+      );
+      const lastSavedWorkout = this.savedWorkouts[0]; // the newest has the lowest index
+
+      const idxOfLastWorkoutFromCurrentPlan = workoutsFromCurrentPlan.findIndex(
+        workout => workout.name === lastSavedWorkout.name
+      );
+
+      const nextWorkoutId = workoutsFromCurrentPlan[
+        idxOfLastWorkoutFromCurrentPlan + 1
+      ]
+        ? workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
+        : workoutsFromCurrentPlan[0].id;
+
+      this.$store.dispatch("workouts/mutateOngoingWorkout", {
+        isActive: true,
+        id: nextWorkoutId,
+        startDate: Date.now()
+      });
+      this.$router.push("/ongoing");
+    }
+  },
+  mixins: [planDataMixin]
 };
 </script>
 <style lang="scss">
@@ -81,6 +137,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.current-plan-section {
+  width: 100%;
 }
 .plan-button {
   width: 95% !important;

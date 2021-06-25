@@ -5,7 +5,9 @@ export const state = {
     isActive: false,
     exercises: []
   },
-  savedWorkouts: []
+  savedWorkouts: [],
+  activePlan: ""
+  // currentWorkoutIndex: 0
 };
 export const mutations = {
   SAVE_WORKOUT(state, workout) {
@@ -21,6 +23,9 @@ export const mutations = {
   MUTATE_ONGOING_WORKOUT(state, data) {
     state.ongoingWorkout = { ...state.ongoingWorkout, ...data };
   },
+  SET_ACTIVE_PLAN(state, planId) {
+    state.activePlan = planId;
+  },
   CANCEL_WORKOUT(state) {
     state.ongoingWorkout = {
       isActive: false,
@@ -29,6 +34,15 @@ export const mutations = {
   },
   CLEAR_WORKOUT_HISTORY(state) {
     state.savedWorkouts = [];
+  },
+  CLEAR_WORKOUT_STATE(state) {
+    state.ongoingWorkout = {
+      isActive: false,
+      exercises: []
+    };
+    state.savedWorkouts = [];
+    state.activePlan = "";
+    // currentWorkoutIndex: 0
   }
 };
 
@@ -42,10 +56,16 @@ export const actions = {
   mutateOngoingWorkout({ commit }, data) {
     commit("MUTATE_ONGOING_WORKOUT", data);
   },
+  setActivePlan({ commit }, data) {
+    commit("SET_ACTIVE_PLAN", data);
+  },
   cancelWorkout({ commit }) {
     commit("CANCEL_WORKOUT");
   },
   clearWorkoutHistory({ commit }) {
     commit("CLEAR_WORKOUT_HISTORY");
+  },
+  clearWorkoutState({ commit }) {
+    commit("CLEAR_WORKOUT_STATE");
   }
 };

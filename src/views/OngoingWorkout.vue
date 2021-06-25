@@ -49,7 +49,10 @@
       </div>
     </div>
 
-    <div class="content d-flex flex-column mx-5 mt-5 align-center" v-else>
+    <div
+      class="d-flex flex-column mt-n5 w-100 vh-100 align-center justify-center"
+      v-else
+    >
       <div class="mb-3">
         Kein aktives Training vorhanden
       </div>
