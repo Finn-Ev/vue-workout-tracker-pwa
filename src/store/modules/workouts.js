@@ -7,7 +7,6 @@ export const state = {
   },
   savedWorkouts: [],
   activePlan: ""
-  // currentWorkoutIndex: 0
 };
 export const mutations = {
   SAVE_WORKOUT(state, workout) {
@@ -42,7 +41,6 @@ export const mutations = {
     };
     state.savedWorkouts = [];
     state.activePlan = "";
-    // currentWorkoutIndex: 0
   }
 };
 

@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import workoutData from "../workout-data/workouts";
+import workoutData from "../workout-data";
 
 import Exercise from "../components/Exercise";
 import { mapState } from "vuex";

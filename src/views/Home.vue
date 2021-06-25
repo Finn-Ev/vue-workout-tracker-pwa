@@ -88,7 +88,7 @@
 <script>
 import { mapState } from "vuex";
 import planDataMixin from "../mixins/planData";
-import workouts from "../workout-data/workouts";
+import workouts from "../workout-data";
 
 export default {
   name: "Home",
@@ -115,8 +115,10 @@ export default {
       const nextWorkoutId = workoutsFromCurrentPlan[
         idxOfLastWorkoutFromCurrentPlan + 1
       ]
-        ? workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
-        : workoutsFromCurrentPlan[0].id;
+        ? // if the last saved workout is not the last of the plan, just increment by one and pick the next
+          workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
+        : // otherwise start at the begin again
+          workoutsFromCurrentPlan[0].id;
 
       this.$store.dispatch("workouts/mutateOngoingWorkout", {
         isActive: true,

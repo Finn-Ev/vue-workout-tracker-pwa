@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import workoutData from "../workout-data/workouts";
+import workoutData from "../workout-data";
 import { mapState } from "vuex";
 import planData from "../mixins/planData";
 
