@@ -2,7 +2,7 @@
   <div class="content">
     <h2 class="mt-3 text-center font-weight-regular">Trainings-Verlauf</h2>
     <div v-if="savedWorkouts.length">
-      <SavedWorkout
+      <saved-workout
         v-for="workout in savedWorkouts"
         :key="workout.date"
         :workout="workout"

@@ -6,19 +6,19 @@
           <v-icon>mdi-home</v-icon>
         </v-btn>
 
-        <v-btn v-if="!activeWorkout" to="/plans">
+        <v-btn tag="div" v-if="!activeWorkout" to="/plans">
           <v-icon>mdi-format-list-bulleted</v-icon>
         </v-btn>
 
-        <v-btn v-if="!activeWorkout" to="/history">
+        <v-btn tag="div" v-if="!activeWorkout" to="/history">
           <v-icon>mdi-history</v-icon>
         </v-btn>
 
-        <v-btn to="/settings">
+        <v-btn tag="div" to="/settings">
           <v-icon>mdi-cog-outline</v-icon>
         </v-btn>
 
-        <v-btn v-if="activeWorkout" to="/ongoing">
+        <v-btn tag="div" v-if="activeWorkout" to="/ongoing">
           <v-icon>mdi-dumbbell</v-icon>
         </v-btn>
       </div>
@@ -70,5 +70,9 @@ export default {
   max-width: 600px !important;
   align-items: center !important;
   justify-content: space-around !important;
+
+  .v-btn::before {
+    background-color: transparent;
+  }
 }
 </style>
