@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2 class="mt-3 text-center font-weight-regular">Verlauf</h2>
+    <h2 class="mt-3 text-center font-weight-regular">Trainings-Verlauf</h2>
     <div v-if="savedWorkouts.length">
       <SavedWorkout
         v-for="workout in savedWorkouts"
@@ -23,7 +23,6 @@ export default {
   components: {
     SavedWorkout
   },
-
   computed: {
     ...mapState({
       savedWorkouts: state => state.workouts.savedWorkouts

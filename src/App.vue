@@ -50,4 +50,7 @@ export default {
   max-width: 600px;
   margin: auto;
 }
+.v-btn--active::before {
+  opacity: 0 !important;
+}
 </style>
