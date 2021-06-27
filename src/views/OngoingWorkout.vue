@@ -84,7 +84,6 @@ export default {
       );
       return workout;
     },
-
     savedExerciseData() {
       return (
         this.workouts.savedWorkouts.filter(
