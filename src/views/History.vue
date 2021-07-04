@@ -8,10 +8,14 @@
         :workout="workout"
       />
     </div>
-    <div v-else>
-      <p class="text-center">
-        Du hast noch keine Trainingseinheiten gespeichert
-      </p>
+    <div
+      class="d-flex flex-column mt-n5 w-100 vh-100 align-center justify-center"
+      v-else
+    >
+      <div class="mb-3">
+        Du hast noch kein Training gespeichert
+      </div>
+      <v-btn to="/plans">Zu den Plänen</v-btn>
     </div>
   </div>
 </template>

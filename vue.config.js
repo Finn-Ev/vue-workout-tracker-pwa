@@ -11,7 +11,7 @@ module.exports = {
     // configure the manifest options
     manifestOptions: {
       display: "landscape",
-      background_color: "#ffffff"
+      background_color: "#000000"
     }
   }
 };

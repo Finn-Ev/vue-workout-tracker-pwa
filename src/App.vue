@@ -6,7 +6,6 @@
       <router-view />
     </v-content>
     <BottomNavbar />
-    <!-- <Timer /> -->
   </v-app>
 </template>
 
@@ -14,6 +13,7 @@
 import BottomNavbar from "./components/BottomNavbar";
 import AlertContainer from "./components/AlertContainer";
 import Dialog from "./components/Dialog";
+import { mapState } from "vuex";
 export default {
   name: "App",
   components: {
@@ -23,11 +23,28 @@ export default {
   },
   data: () => ({}),
   mounted() {
-    if (JSON.parse(localStorage.getItem("theme"))?.dark) {
-      document.querySelector("body").style.background = "#121212";
+    this.retrieveTheme();
+    this.redirect();
+  },
+  methods: {
+    retrieveTheme() {
+      if (JSON.parse(localStorage.getItem("theme"))?.dark) {
+        document.querySelector("body").style.background = "#121212";
+      }
+    },
+    redirect() {
+      if (this.hasActiveWorkout) {
+        this.$router.push("/ongoing");
+      } else {
+        this.$router.push("/");
+      }
     }
   },
-  computed: {}
+  computed: {
+    ...mapState({
+      hasActiveWorkout: state => state.workouts.ongoingWorkout.isActive
+    })
+  }
 };
 </script>
 <style lang="scss">
