@@ -6,9 +6,7 @@
           {{ dialog.title }}
         </v-card-title>
 
-        <v-card-text class="mt-3">
-          {{ dialog.text }}
-        </v-card-text>
+        <v-card-text v-html="dialog.text" class="mt-3"> </v-card-text>
 
         <v-divider />
 

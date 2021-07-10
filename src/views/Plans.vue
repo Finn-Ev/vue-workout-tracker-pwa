@@ -25,6 +25,16 @@
           description="4 Einheiten pro Woche"
           plan-id="okuk"
         />
+        <plan-preview
+          title="Bodyweight Level 1"
+          description="4 Einheiten pro Woche"
+          plan-id="bw1"
+        />
+        <plan-preview
+          title="Bodyweight Level 2"
+          description="6 Einheiten pro Woche"
+          plan-id="bw2"
+        />
       </v-row>
     </v-container>
   </div>

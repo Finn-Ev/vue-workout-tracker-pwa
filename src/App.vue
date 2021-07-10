@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <AlertContainer />
+    <alert-container />
     <Dialog />
     <v-content>
       <router-view />
     </v-content>
-    <BottomNavbar />
+    <bottom-navbar />
   </v-app>
 </template>
 
@@ -23,11 +23,11 @@ export default {
   },
   data: () => ({}),
   mounted() {
-    this.retrieveTheme();
+    this.setBodyBackground();
     this.redirect();
   },
   methods: {
-    retrieveTheme() {
+    setBodyBackground() {
       if (JSON.parse(localStorage.getItem("theme"))?.dark) {
         document.querySelector("body").style.background = "#121212";
       }

@@ -88,13 +88,13 @@ export default {
           this.$store.dispatch("dialog/setDialog", {
             show: true,
             title: "Achtung",
-            text: `Du hast bereits ${this.workouts.activePlan} als aktiven Plan`,
+            text: `Du hast bereits "${this.selectedPlanName}" als aktiven Plan. <br> Wenn du ihn änderst, wird der Trainingsverlauf gelöscht`,
             textColor: "orange",
             onconfirmMethod: () => {
               this.$store.dispatch("dialog/closeDialog");
               this.startWorkout(id);
             },
-            confirmText: `${this.selectedPlanName} zum aktiven Plan machen und Trainingsverlauf löschen`
+            confirmText: `Plan "${this.selectedPlanName}" aktivieren`
           });
         } else {
           this.startWorkout(id);

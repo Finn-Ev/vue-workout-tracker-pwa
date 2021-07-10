@@ -666,6 +666,7 @@ export default [
       }
     ]
   },
+
   {
     plan: "okuk",
     id: "OKUKC2",
@@ -718,6 +719,281 @@ export default [
         pause: "2",
         intervall: "2, 1, 1, 1",
         bodyweight: false
+      }
+    ]
+  },
+  //TODO: bodyweight start
+  {
+    plan: "bw2",
+    id: "BW2A1",
+    name: "Bodyweight Push A",
+    exercises: [
+      {
+        name: "Planche Hold",
+        sets: 4,
+        reps: "20",
+        pause: "2",
+        intervall: "1, 0, 1, 1",
+        bodyweight: true
+      },
+      {
+        name: "Push-Ups (Decline)",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Dips",
+        sets: 4,
+        reps: "10",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Diamond Push-Ups",
+        sets: 3,
+        reps: "10",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Push-Ups",
+        sets: 3,
+        reps: "15",
+        pause: "1",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw2",
+    id: "BW2B1",
+    name: "Bodyweight Pull A",
+    exercises: [
+      {
+        name: "Tuck Frontlever Hold",
+        sets: 4,
+        reps: "20",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Klimmzüge",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Chin-Ups",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Commando Pull-Ups",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "BW Rows",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw2",
+    id: "BW2C1",
+    name: "Bodyweight Legs A",
+    exercises: [
+      {
+        name: "Single Leg Squats",
+        sets: 6,
+        reps: "8",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Jumping Squats",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Jumping Lunges (alternierend)",
+        sets: 4,
+        reps: "20",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Reverse Plank Lifts",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Wadenheben (mit BFR-Band)",
+        sets: 3,
+        reps: "15-30",
+        pause: "0.5",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw2",
+    id: "BW2A2",
+    name: "Bodyweight Push B",
+    exercises: [
+      {
+        name: "Pseudo Planche Push-Ups",
+        sets: 4,
+        reps: "10",
+        pause: "2",
+        intervall: "1, 0, 1, 1",
+        bodyweight: true
+      },
+      {
+        name: "Push-Ups (Decline)",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Dips",
+        sets: 4,
+        reps: "10",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Diamond Push-Ups",
+        sets: 3,
+        reps: "10",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Scapula Push-Ups",
+        sets: 3,
+        reps: "12",
+        pause: "1",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw2",
+    id: "BW2B2",
+    name: "Bodyweight Pull B",
+    exercises: [
+      {
+        name: "Ice Cream Makers",
+        sets: 4,
+        reps: "8",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Klimmzüge",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Chin-Ups",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "BW Rows",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw2",
+    id: "BW2C2",
+    name: "Bodyweight Legs B",
+    exercises: [
+      {
+        name: "Single Leg Squats",
+        sets: 6,
+        reps: "8",
+        pause: "1.5",
+        intervall: "2, 0, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Jumping Squats",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Jumping Lunges (alternierend)",
+        sets: 4,
+        reps: "20",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Reverse Plank Lifts",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
+      },
+      {
+        name: "Wadenheben (mit BFR-Band)",
+        sets: 3,
+        reps: "15-30",
+        pause: "0.5",
+        intervall: "2, 1, 1, 0",
+        bodyweight: true
       }
     ]
   }
