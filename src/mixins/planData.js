@@ -7,49 +7,41 @@ export default {
       return `/plans/${this.workouts.activePlan}`;
     },
     activePlanName() {
-      let name;
-      switch (this.workouts.activePlan) {
-        case "ppl":
-          name = "Push Pull Legs";
-          break;
-        case "okuk":
-          name = "Oberkörper / Unterkörper";
-          break;
-        case "planche":
-          name = "Planche";
-          break;
-        case "front-lever":
-          name = "Front Lever";
-          break;
-        default:
-          break;
-      }
-      return name;
+      return this.getPlanName(this.workouts.activePlan);
     },
     selectedPlanName() {
-      let name;
-      switch (this.$route.params.selectedPlan) {
-        case "ppl":
-          name = "Push Pull Legs";
-          break;
-        case "okuk":
-          name = "Oberkörper / Unterkörper";
-          break;
-        case "planche":
-          name = "Planche";
-          break;
-        case "front-lever":
-          name = "Front Lever";
-          break;
-        default:
-          break;
-      }
-      return name;
+      return this.getPlanName(this.$route.params.selectedPlan);
     }
   },
   methods: {
     isActivePlan(planId) {
       return this.workouts.activePlan === planId;
+    },
+    getPlanName(planId) {
+      let name;
+      switch (planId) {
+        case "ppl":
+          name = "Push Pull Legs";
+          break;
+        case "okuk":
+          name = "Oberkörper / Unterkörper";
+          break;
+        case "bw1":
+          name = "Bodyweight Level 1";
+          break;
+        case "bw2":
+          name = "Bodyweight Level 2";
+          break;
+        case "planche":
+          name = "Planche";
+          break;
+        case "front-lever":
+          name = "Front Lever";
+          break;
+        default:
+          break;
+      }
+      return name;
     }
   }
 };
