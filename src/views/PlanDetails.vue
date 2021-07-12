@@ -103,7 +103,6 @@ export default {
     },
     startWorkout(id) {
       this.$store.dispatch("workouts/setActivePlan", this.selectedPlan);
-      this.$store.dispatch("workouts/clearWorkoutHistory");
       this.$store.dispatch("workouts/mutateOngoingWorkout", {
         isActive: true,
         id,
