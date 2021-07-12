@@ -675,7 +675,6 @@ export default [
       }
     ]
   },
-
   {
     plan: "okuk",
     planName: "Oberkörper / Unterkörper",
@@ -744,7 +743,6 @@ export default [
         sets: 4,
         reps: "20",
         pause: "2",
-        intervall: "1, 0, 1, 1",
         bodyweight: true
       },
       {
@@ -752,7 +750,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -760,7 +757,6 @@ export default [
         sets: 4,
         reps: "10",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -768,7 +764,6 @@ export default [
         sets: 3,
         reps: "10",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -776,7 +771,6 @@ export default [
         sets: 3,
         reps: "15",
         pause: "1",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       }
     ]
@@ -790,9 +784,8 @@ export default [
       {
         name: "Tuck Frontlever Hold",
         sets: 4,
-        reps: "20",
+        reps: "20 Sek.",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -800,7 +793,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -808,23 +800,20 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
         name: "Commando Pull-Ups",
         sets: 4,
         reps: "8",
-        pause: "2",
-        intervall: "2, 1, 1, 0",
+        pause: "1.5",
         bodyweight: true
       },
       {
         name: "BW Rows",
         sets: 4,
         reps: "12",
-        pause: "2",
-        intervall: "2, 1, 1, 0",
+        pause: "1.5",
         bodyweight: true
       }
     ]
@@ -840,7 +829,6 @@ export default [
         sets: 6,
         reps: "8",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -848,7 +836,6 @@ export default [
         sets: 4,
         reps: "12",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -856,7 +843,6 @@ export default [
         sets: 4,
         reps: "20",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -864,7 +850,6 @@ export default [
         sets: 4,
         reps: "12",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -872,7 +857,6 @@ export default [
         sets: 3,
         reps: "15-30",
         pause: "0.5",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       }
     ]
@@ -888,7 +872,6 @@ export default [
         sets: 4,
         reps: "10",
         pause: "2",
-        intervall: "1, 0, 1, 1",
         bodyweight: true
       },
       {
@@ -896,7 +879,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -904,7 +886,6 @@ export default [
         sets: 4,
         reps: "10",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -912,7 +893,6 @@ export default [
         sets: 3,
         reps: "10",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -920,7 +900,6 @@ export default [
         sets: 3,
         reps: "12",
         pause: "1",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       }
     ]
@@ -936,7 +915,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -944,7 +922,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -952,7 +929,6 @@ export default [
         sets: 4,
         reps: "8",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -960,7 +936,6 @@ export default [
         sets: 4,
         reps: "12",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       }
     ]
@@ -976,7 +951,6 @@ export default [
         sets: 6,
         reps: "8",
         pause: "1.5",
-        intervall: "2, 0, 1, 0",
         bodyweight: true
       },
       {
@@ -984,7 +958,6 @@ export default [
         sets: 4,
         reps: "12",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -992,7 +965,6 @@ export default [
         sets: 4,
         reps: "20",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -1000,7 +972,6 @@ export default [
         sets: 4,
         reps: "12",
         pause: "2",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       },
       {
@@ -1008,7 +979,6 @@ export default [
         sets: 3,
         reps: "15-30",
         pause: "0.5",
-        intervall: "2, 1, 1, 0",
         bodyweight: true
       }
     ]

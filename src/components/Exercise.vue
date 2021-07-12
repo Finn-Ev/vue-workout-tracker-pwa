@@ -100,7 +100,7 @@ export default {
   props: ["exercise", "idx", "savedExerciseData"],
   data() {
     return {
-      sets: [0, 0, 0, 0],
+      sets: [],
       weight: null,
       notes: "",
       showNotesTextField: false,
@@ -108,7 +108,7 @@ export default {
       hasBeenSaved: false
     };
   },
-  created() {
+  mounted() {
     if (this.exerciseAlreadySaved()) {
       const [exercise] = this.ongoingWorkout.exercises.filter(
         exercise => exercise.name === this.exercise.name
@@ -116,6 +116,10 @@ export default {
       this.weight = exercise.weight;
       this.sets = exercise.sets;
       this.notes = exercise.notes;
+    } else {
+      for (let i = 0; i < this.exercise.sets; i++) {
+        this.sets.push(0);
+      }
     }
   },
   computed: {
