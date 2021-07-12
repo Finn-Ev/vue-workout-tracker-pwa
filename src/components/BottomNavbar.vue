@@ -10,7 +10,11 @@
           <v-icon>mdi-format-list-bulleted</v-icon>
         </v-btn>
 
-        <v-btn tag="div" v-if="!activeWorkout" to="/history">
+        <v-btn
+          tag="div"
+          v-if="!activeWorkout && hasWorkoutHistory"
+          to="/history"
+        >
           <v-icon>mdi-history</v-icon>
         </v-btn>
 
@@ -27,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -36,12 +41,16 @@ export default {
 
   methods: {
     checkActiveWorkout() {
-      this.activeWorkout = this.$store.state.workouts.ongoingWorkout.isActive;
+      this.activeWorkout = this.workouts.ongoingWorkout.isActive;
     }
   },
   computed: {
+    ...mapState(["workouts"]),
     isiPhone() {
       return navigator.platform.includes("iPhone");
+    },
+    hasWorkoutHistory() {
+      return this.workouts.savedWorkouts.length;
     }
   },
   watch: {
