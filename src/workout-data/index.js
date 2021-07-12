@@ -141,6 +141,7 @@ export default [
   // }
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLA1",
     name: "Push Tag A (PPL)",
     exercises: [
@@ -204,6 +205,7 @@ export default [
   },
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLB1",
     name: "Pull Tag A (PPL)",
     exercises: [
@@ -259,6 +261,7 @@ export default [
   },
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLC1",
     name: "Legs Tag A (PPL)",
     exercises: [
@@ -314,6 +317,7 @@ export default [
   },
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLA2",
     name: "Push Tag B (PPL)",
     exercises: [
@@ -377,6 +381,7 @@ export default [
   },
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLB2",
     name: "Pull Tag B (PPL)",
     exercises: [
@@ -432,6 +437,7 @@ export default [
   },
   {
     plan: "ppl",
+    planName: "Push Pull Legs",
     id: "PPLC2",
     name: "Legs Tag B (PPL)",
     exercises: [
@@ -487,6 +493,7 @@ export default [
   },
   {
     plan: "okuk",
+    planName: "Oberkörper / Unterkörper",
     id: "OKUKA1",
     name: "Oberkörper Tag A (OKUK)",
     exercises: [
@@ -550,6 +557,7 @@ export default [
   },
   {
     plan: "okuk",
+    planName: "Oberkörper / Unterkörper",
     id: "OKUKB2",
     name: "Unterkörper Tag A (OKUK)",
     exercises: [
@@ -605,6 +613,7 @@ export default [
   },
   {
     plan: "okuk",
+    planName: "Oberkörper / Unterkörper",
     id: "OKUKA2",
     name: "Oberkörper Tag B (OKUK)",
     exercises: [
@@ -669,6 +678,7 @@ export default [
 
   {
     plan: "okuk",
+    planName: "Oberkörper / Unterkörper",
     id: "OKUKC2",
     name: "Unterkörper Tag B (OKUK)",
     exercises: [
@@ -725,6 +735,7 @@ export default [
   //TODO: bodyweight start
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2A1",
     name: "Bodyweight Push A",
     exercises: [
@@ -772,6 +783,7 @@ export default [
   },
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2B1",
     name: "Bodyweight Pull A",
     exercises: [
@@ -819,6 +831,7 @@ export default [
   },
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2C1",
     name: "Bodyweight Legs A",
     exercises: [
@@ -866,6 +879,7 @@ export default [
   },
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2A2",
     name: "Bodyweight Push B",
     exercises: [
@@ -913,6 +927,7 @@ export default [
   },
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2B2",
     name: "Bodyweight Pull B",
     exercises: [
@@ -952,6 +967,7 @@ export default [
   },
   {
     plan: "bw2",
+    planName: "Bodyweight Level 2",
     id: "BW2C2",
     name: "Bodyweight Legs B",
     exercises: [
