@@ -16,10 +16,7 @@
       <h3 class="text-center font-weight-regular my-3">
         Aktiver Plan: {{ activePlanName }}
         <div class="d-flex flex-column">
-          <div class="my-3">
-            <v-btn :to="activePlanUrl" link>Zum Plan</v-btn>
-          </div>
-          <div>
+          <div class="mt-2">
             <v-btn v-if="hasActiveWorkout" to="/ongoing"
               >Zum aktiven Workout
             </v-btn>
@@ -108,17 +105,24 @@ export default {
       );
       const lastSavedWorkout = this.savedWorkouts[0]; // the newest has the lowest index
 
-      const idxOfLastWorkoutFromCurrentPlan = workoutsFromCurrentPlan.findIndex(
-        workout => workout.name === lastSavedWorkout.name
-      );
+      let nextWorkoutId = null;
+      if (!lastSavedWorkout) {
+        // just start the first workout of the current plan when there is no saved workout (it could be the case that the user started the first workout and then canceled it)
+        console.log(workoutsFromCurrentPlan[0]);
+        nextWorkoutId = workoutsFromCurrentPlan[0].id;
+      } else {
+        const idxOfLastWorkoutFromCurrentPlan = workoutsFromCurrentPlan?.findIndex(
+          workout => workout.name === lastSavedWorkout.name
+        );
 
-      const nextWorkoutId = workoutsFromCurrentPlan[
-        idxOfLastWorkoutFromCurrentPlan + 1
-      ]
-        ? // if the last saved workout is not the last of the plan, just increment by one and pick the next
-          workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
-        : // otherwise start at the begin again
-          workoutsFromCurrentPlan[0].id;
+        nextWorkoutId = workoutsFromCurrentPlan[
+          idxOfLastWorkoutFromCurrentPlan + 1
+        ]
+          ? // if the last saved workout is not the last of the plan, just increment by one and pick the next
+            workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
+          : // otherwise start at the begin again
+            workoutsFromCurrentPlan[0].id;
+      }
 
       this.$store.dispatch("workouts/mutateOngoingWorkout", {
         isActive: true,
