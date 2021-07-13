@@ -35,7 +35,7 @@ export default {
     redirect() {
       if (this.hasActiveWorkout) {
         this.$router.push("/ongoing");
-      } else {
+      } else if (this.$route.path !== "/") {
         this.$router.push("/");
       }
     }
@@ -78,5 +78,18 @@ export default {
 }
 .v-btn--active::before {
   opacity: 0 !important;
+}
+
+// remove number-input arrows
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>
