@@ -35,7 +35,6 @@
 
       <v-card-text>
         <v-text-field
-          v-if="!exercise.bodyweight"
           v-model="weight"
           aria-autocomplete="false"
           type="number"
@@ -43,7 +42,11 @@
           max="99"
           step="1"
           pattern="\d*"
-          label="Genutztes Gewicht in Kg"
+          :label="
+            exercise.isBodyweight
+              ? 'Zusatzgewicht in Kg (falls genutzt)'
+              : 'Genutztes Gewicht in Kg'
+          "
         />
         <h3 class="mb-0 font-weight-light">Sätze</h3>
         <div class="d-flex justify-space-between">
@@ -58,8 +61,8 @@
                 type="number"
                 min="0"
                 max="99"
-                placeholder="0"
                 pattern="\d*"
+                onClick="this.value = null"
                 class="rep-input text-center"
                 v-model="sets[n - 1]"
               />
@@ -128,6 +131,11 @@ export default {
       this.weight = exercise.weight;
       this.sets = exercise.sets;
       this.notes = exercise.notes;
+    } else {
+      //init all set-values with 0
+      for (let i = 0; i < this.exercise.sets; i++) {
+        this.sets.push(0);
+      }
     }
   },
   computed: {
@@ -176,14 +184,6 @@ export default {
         const filteredExercises = this.ongoingWorkout.exercises.filter(
           exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
         );
-
-        // set each set that hasnt been completed to zero reps instead of null
-        exerciseToSave.sets = exerciseToSave.sets.map(set => {
-          if (!set) {
-            set = 0;
-          }
-          return set;
-        });
 
         this.$store.dispatch("workouts/saveExercises", [
           ...filteredExercises,
