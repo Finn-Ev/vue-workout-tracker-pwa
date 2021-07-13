@@ -39,20 +39,32 @@
           v-model="weight"
           aria-autocomplete="false"
           type="number"
+          min="0"
+          max="99"
+          step="1"
+          pattern="\d*"
           label="Genutztes Gewicht in Kg"
         />
+        <h3 class="mb-0 font-weight-light">Sätze</h3>
         <div class="d-flex justify-space-between">
-          <div>
+          <div class="d-flex flex-wrap">
             <v-btn
-              class="mr-2 my-1"
-              @click="changeSetValue(n - 1, exercise.reps)"
               v-for="n in exercise.sets"
               :key="n"
-              tag="div"
-              >{{ sets[n - 1] }}</v-btn
+              class="mr-2 my-1 px-0"
+              :class="{ 'mt-3': n > 4 && isMobile }"
             >
+              <input
+                type="number"
+                min="0"
+                max="99"
+                placeholder="0"
+                pattern="\d*"
+                class="rep-input text-center"
+                v-model="sets[n - 1]"
+              />
+            </v-btn>
           </div>
-
           <v-icon
             class="notes-icon"
             style="touch-action: manipulation;"
@@ -116,10 +128,6 @@ export default {
       this.weight = exercise.weight;
       this.sets = exercise.sets;
       this.notes = exercise.notes;
-    } else {
-      for (let i = 0; i < this.exercise.sets; i++) {
-        this.sets.push(0);
-      }
     }
   },
   computed: {
@@ -137,20 +145,18 @@ export default {
       }
       return null;
     },
+    isMobile() {
+      return window.innerWidth < 432;
+    },
     ...mapState("workouts", ["ongoingWorkout"])
   },
 
   methods: {
-    changeSetValue(n, reps) {
-      if (this.sets[n] >= reps * 1.5) return this.sets.splice(n, 1, 1);
-      this.sets.splice(n, 1, this.sets[n] + 1);
-    },
-
     // check if the exercise with this name was saved already during the workout
     exerciseAlreadySaved() {
-      this.hasBeenSaved = this.ongoingWorkout.exercises.filter(
+      this.hasBeenSaved = this.ongoingWorkout.exercises.some(
         exercise => exercise.name === this.exercise.name
-      ).length;
+      );
       return this.hasBeenSaved;
     },
 
@@ -171,6 +177,14 @@ export default {
           exercise => exercise.name !== exerciseToSave.name // delete the current version of the exercise
         );
 
+        // set each set that hasnt been completed to zero reps instead of null
+        exerciseToSave.sets = exerciseToSave.sets.map(set => {
+          if (!set) {
+            set = 0;
+          }
+          return set;
+        });
+
         this.$store.dispatch("workouts/saveExercises", [
           ...filteredExercises,
           exerciseToSave // save the new version of the exercise
@@ -190,5 +204,10 @@ export default {
 }
 .mdi-text::after {
   background-color: rgba($color: #000, $alpha: 0) !important;
+}
+.rep-input {
+  width: 100% !important;
+  font-size: 16px !important;
+  padding: 0 !important;
 }
 </style>
