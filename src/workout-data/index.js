@@ -9,28 +9,28 @@ export default [
   //       sets: 4,
   //       reps: 10,
   //       pause: "3",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Planche Hold",
   //       sets: 4,
   //       reps: 15,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Dips",
   //       sets: 4,
   //       reps: 12,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Planche Lean",
   //       sets: 3,
   //       reps: 15,
   //       pause: "2",
-  //       bodyweight: false
+  //       isBodyweight: false
   //     }
   //   ]
   // },
@@ -44,28 +44,28 @@ export default [
   //       sets: 4,
   //       reps: 15,
   //       pause: "3",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Planche Push-Ups (mit Band)",
   //       sets: 4,
   //       reps: 10,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "SB-Dips",
   //       sets: 4,
   //       reps: 12,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Planche Lean",
   //       sets: 3,
   //       reps: 15,
   //       pause: "2",
-  //       bodyweight: false
+  //       isBodyweight: false
   //     }
   //   ]
   // },
@@ -79,28 +79,28 @@ export default [
   //       sets: 4,
   //       reps: 12,
   //       pause: "3",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Isometric Front-Lever Hold",
   //       sets: 4,
   //       reps: 30,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Klimmzüge",
   //       sets: 4,
   //       reps: 12,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Scapula Pull Ups",
   //       sets: 3,
   //       reps: 15,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     }
   //   ]
   // },
@@ -114,28 +114,28 @@ export default [
   //       sets: 4,
   //       reps: 15,
   //       pause: "3",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Front-Lever Raises",
   //       sets: 4,
   //       reps: 10,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Chin Ups",
   //       sets: 4,
   //       reps: 12,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     },
   //     {
   //       name: "Body Rows",
   //       sets: 3,
   //       reps: 15,
   //       pause: "2",
-  //       bodyweight: true
+  //       isBodyweight: true
   //     }
   //   ]
   // }
@@ -151,7 +151,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Schrägbankdrücken KH",
@@ -159,7 +159,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Cable Flyes",
@@ -167,7 +167,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Überkopfdrücken",
@@ -175,7 +175,7 @@ export default [
         reps: "6",
         pause: "2",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Seitheben",
@@ -183,7 +183,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Frenchpress",
@@ -191,7 +191,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Trizpesdrücken einarmig",
@@ -199,7 +199,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -215,7 +215,7 @@ export default [
         reps: "6",
         pause: "2",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Klimmzug",
@@ -223,7 +223,7 @@ export default [
         reps: "6",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Kabelrudern eng",
@@ -231,7 +231,7 @@ export default [
         reps: "8",
         pause: "1.5",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Reverse Butterfly",
@@ -239,7 +239,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "2, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Preacher Curls",
@@ -247,7 +247,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Bizepscurls KH (eindrehend)",
@@ -255,7 +255,7 @@ export default [
         reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -271,7 +271,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinpresse",
@@ -279,7 +279,7 @@ export default [
         reps: "10",
         pause: "2",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinbeuger liegend",
@@ -287,7 +287,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "2, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinstrecker (splitted)",
@@ -295,7 +295,7 @@ export default [
         reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Ausfallschritte",
@@ -303,7 +303,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Wadenheben (stehend)",
@@ -311,7 +311,7 @@ export default [
         reps: "6",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -327,7 +327,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Brustpresse",
@@ -335,7 +335,7 @@ export default [
         reps: "10",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Butterfly",
@@ -343,7 +343,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Schulterdrücken KH",
@@ -351,7 +351,7 @@ export default [
         reps: "8",
         pause: "1.5",
         intervall: "2, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Seitheben (Maschine)",
@@ -359,7 +359,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Trizeps Pushdowns (Seil)",
@@ -367,7 +367,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Überkopf Trizpesdrücken SZ ",
@@ -375,7 +375,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -391,7 +391,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "T-Bar Rudern",
@@ -399,7 +399,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Überzüge",
@@ -407,7 +407,7 @@ export default [
         reps: "15",
         pause: "1.5",
         intervall: "2, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Facepulls",
@@ -415,7 +415,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Hammer Curls",
@@ -423,7 +423,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Bizepscurls KH",
@@ -431,7 +431,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -447,7 +447,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinpresse",
@@ -455,7 +455,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Rum. Kreuzheben",
@@ -463,7 +463,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Hyperextension (Maschine)",
@@ -471,7 +471,7 @@ export default [
         reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Bulg. Split Squats",
@@ -479,7 +479,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Wadenheben (sitzend)",
@@ -487,7 +487,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -503,7 +503,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Klimmzug ",
@@ -511,7 +511,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Schrägbankdrücken KH",
@@ -519,7 +519,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Kabelrudern breit",
@@ -527,7 +527,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Butterfly",
@@ -535,7 +535,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "1, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Facepulls",
@@ -543,7 +543,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "1, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Seitheben (Maschine)",
@@ -551,7 +551,7 @@ export default [
         reps: "12",
         pause: "1",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -567,7 +567,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinpresse",
@@ -575,7 +575,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Rum. Kreuzheben",
@@ -583,7 +583,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Hyperextension (Maschine)",
@@ -591,7 +591,7 @@ export default [
         reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Bulg. Split Squats",
@@ -599,7 +599,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Wadenheben (sitzend)",
@@ -607,7 +607,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -623,7 +623,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Kabelrudern eng ",
@@ -631,7 +631,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Brustpresse",
@@ -639,7 +639,7 @@ export default [
         reps: "10",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Latzug",
@@ -647,7 +647,7 @@ export default [
         reps: "8",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Trizepsdrücken",
@@ -655,7 +655,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Bizepscurls (eindrehend)",
@@ -663,7 +663,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Seitheben KH",
@@ -671,7 +671,7 @@ export default [
         reps: "8",
         pause: "1.5",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
@@ -687,7 +687,7 @@ export default [
         reps: "6",
         pause: "3",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinpresse",
@@ -695,7 +695,7 @@ export default [
         reps: "10",
         pause: "2",
         intervall: "2, 1, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinbeuger liegend",
@@ -703,7 +703,7 @@ export default [
         reps: "12",
         pause: "1.5",
         intervall: "2, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Beinstrecker (splitted)",
@@ -711,7 +711,7 @@ export default [
         reps: "10",
         pause: "1",
         intervall: "1, 0, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Ausfallschritte",
@@ -719,7 +719,7 @@ export default [
         reps: "10",
         pause: "1.5",
         intervall: "1, 0, 1, 0",
-        bodyweight: false
+        isBodyweight: false
       },
       {
         name: "Wadenheben (stehend)",
@@ -727,11 +727,11 @@ export default [
         reps: "6",
         pause: "2",
         intervall: "2, 1, 1, 1",
-        bodyweight: false
+        isBodyweight: false
       }
     ]
   },
-  //TODO: bodyweight start
+  //TODO: isBodyweight start
   {
     plan: "bw2",
     planName: "Bodyweight Level 2",
@@ -743,35 +743,35 @@ export default [
         sets: 4,
         reps: "20",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Push-Ups (Decline)",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Dips",
         sets: 4,
         reps: "10",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Diamond Push-Ups",
         sets: 3,
         reps: "10",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Push-Ups",
         sets: 3,
         reps: "15",
         pause: "1",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   },
@@ -786,35 +786,35 @@ export default [
         sets: 4,
         reps: "20 Sek.",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Klimmzüge",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Chin-Ups",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Commando Pull-Ups",
         sets: 4,
         reps: "8",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "BW Rows",
         sets: 4,
         reps: "12",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   },
@@ -829,35 +829,35 @@ export default [
         sets: 6,
         reps: "8",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Jumping Squats",
         sets: 4,
         reps: "12",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Jumping Lunges (alternierend)",
         sets: 4,
         reps: "20",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Reverse Plank Lifts",
         sets: 4,
         reps: "12",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Wadenheben (mit BFR-Band)",
         sets: 3,
         reps: "15-30",
         pause: "0.5",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   },
@@ -872,35 +872,35 @@ export default [
         sets: 4,
         reps: "10",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Push-Ups (Decline)",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Dips",
         sets: 4,
         reps: "10",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Diamond Push-Ups",
         sets: 3,
         reps: "10",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Scapula Push-Ups",
         sets: 3,
         reps: "12",
         pause: "1",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   },
@@ -915,28 +915,28 @@ export default [
         sets: 4,
         reps: "8",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Klimmzüge",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Chin-Ups",
         sets: 4,
         reps: "8",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "BW Rows",
         sets: 4,
         reps: "12",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   },
@@ -951,35 +951,35 @@ export default [
         sets: 6,
         reps: "8",
         pause: "1.5",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Jumping Squats",
         sets: 4,
         reps: "12",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Jumping Lunges (alternierend)",
         sets: 4,
         reps: "20",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Reverse Plank Lifts",
         sets: 4,
         reps: "12",
         pause: "2",
-        bodyweight: true
+        isBodyweight: true
       },
       {
         name: "Wadenheben (mit BFR-Band)",
         sets: 3,
         reps: "15-30",
         pause: "0.5",
-        bodyweight: true
+        isBodyweight: true
       }
     ]
   }
