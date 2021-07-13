@@ -38,6 +38,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return { x: 0, y: 0 }; // scroll top top after each route change
+  },
   mode: "hash",
   base: process.env.BASE_URL,
   routes
