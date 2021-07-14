@@ -11,33 +11,13 @@
         <p class="mt-4">
           Gespeicherte Trainingseinheiten: {{ savedWorkouts.length }}
         </p>
-        <v-btn
-          block
-          class="mb-2"
-          color="darkgrey"
-          :disabled="!savedWorkouts.length"
-          @click="
-            setDialogValues({
-              show: true,
-              title: 'Achtung',
-              text: 'Willst du deinen Trainingsverlauf wirklich löschen?',
-              textColor: 'red',
-              onconfirmMethod: clearHistory,
-              confirmText: 'Verlauf löschen'
-            })
-          "
-          >Verlauf löschen</v-btn
-        >
-        <v-divider />
-        <p class="mt-4" style="height: 1rem">
-          &nbsp;
-        </p>
+
         <v-btn
           block
           class="mb-2"
           color="darkgrey"
           @click="handleResetAppRequest"
-          >Anwendung zurücksetzen</v-btn
+          >Trainingsdaten löschen</v-btn
         >
       </v-card-text>
     </v-card>
@@ -47,6 +27,11 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  data() {
+    return {
+      requestResetWorkoutStateCount: 0
+    };
+  },
   computed: {
     darkTheme() {
       return this.$vuetify.theme.dark;
@@ -67,16 +52,22 @@ export default {
       this.$store.dispatch("dialog/setDialog", {
         show: true,
         title: "Achtung",
-        text: "Möchtest du wirklich sämtliche Daten der App löschen?",
+        text:
+          "Möchtest du wirklich sämtliche gespeicherten Trainingsdaten löschen?",
         textColor: "red",
         onconfirmMethod: this.resetWorkoutStateApp,
-        confirmText: `Alles zurücksetzen`
+        confirmText: `Alles löschen`
       });
     },
     resetWorkoutStateApp() {
-      this.$store.dispatch("workouts/clearWorkoutState");
-      this.$store.dispatch("dialog/closeDialog");
-      this.$router.push("/");
+      this.requestResetWorkoutStateCount++;
+
+      // user has to click the reset button 2 times (safer)
+      if (this.requestResetWorkoutStateCount > 1) {
+        this.$store.dispatch("workouts/clearWorkoutState");
+        this.$store.dispatch("dialog/closeDialog");
+        this.$router.push("/");
+      }
     },
     setDialogValues({ ...dialogData }) {
       this.$store.dispatch("dialog/setDialog", dialogData);

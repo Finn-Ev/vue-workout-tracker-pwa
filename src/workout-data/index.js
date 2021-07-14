@@ -731,7 +731,7 @@ export default [
       }
     ]
   },
-  //TODO: isBodyweight start
+  // bodyweight start
   {
     plan: "bw2",
     planName: "Bodyweight Level 2",
@@ -755,7 +755,7 @@ export default [
       {
         name: "Dips",
         sets: 4,
-        reps: "10",
+        reps: "8",
         pause: "2",
         isBodyweight: true
       },
@@ -785,7 +785,7 @@ export default [
         name: "Tuck Frontlever Hold",
         sets: 4,
         reps: "20 Sek.",
-        pause: "1.5",
+        pause: "2",
         isBodyweight: true
       },
       {
@@ -806,7 +806,7 @@ export default [
         name: "Commando Pull-Ups",
         sets: 4,
         reps: "8",
-        pause: "1.5",
+        pause: "2",
         isBodyweight: true
       },
       {
@@ -828,7 +828,7 @@ export default [
         name: "Single Leg Squats",
         sets: 6,
         reps: "8",
-        pause: "1.5",
+        pause: "1",
         isBodyweight: true
       },
       {
@@ -849,7 +849,7 @@ export default [
         name: "Reverse Plank Lifts",
         sets: 4,
         reps: "12",
-        pause: "2",
+        pause: "1.5",
         isBodyweight: true
       },
       {
@@ -884,7 +884,7 @@ export default [
       {
         name: "Dips",
         sets: 4,
-        reps: "10",
+        reps: "8",
         pause: "2",
         isBodyweight: true
       },
@@ -914,7 +914,7 @@ export default [
         name: "Ice Cream Makers",
         sets: 4,
         reps: "8",
-        pause: "1.5",
+        pause: "2",
         isBodyweight: true
       },
       {
@@ -934,8 +934,15 @@ export default [
       {
         name: "BW Rows",
         sets: 4,
-        reps: "12",
+        reps: "8",
         pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Scapula Pull Ups",
+        sets: 3,
+        reps: "12",
+        pause: "1",
         isBodyweight: true
       }
     ]
@@ -947,10 +954,10 @@ export default [
     name: "Bodyweight Legs B",
     exercises: [
       {
-        name: "Single Leg Squats",
+        name: "Single Leg Squats (abwechselnd)",
         sets: 6,
         reps: "8",
-        pause: "1.5",
+        pause: "1",
         isBodyweight: true
       },
       {
@@ -971,7 +978,7 @@ export default [
         name: "Reverse Plank Lifts",
         sets: 4,
         reps: "12",
-        pause: "2",
+        pause: "1.5",
         isBodyweight: true
       },
       {

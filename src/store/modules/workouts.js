@@ -31,9 +31,9 @@ export const mutations = {
       exercises: []
     };
   },
-  CLEAR_WORKOUT_HISTORY(state) {
-    state.savedWorkouts = [];
-  },
+  // CLEAR_WORKOUT_HISTORY(state) {
+  //   state.savedWorkouts = [];
+  // },
   CLEAR_WORKOUT_STATE(state) {
     state.ongoingWorkout = {
       isActive: false,
@@ -60,9 +60,9 @@ export const actions = {
   cancelWorkout({ commit }) {
     commit("CANCEL_WORKOUT");
   },
-  clearWorkoutHistory({ commit }) {
-    commit("CLEAR_WORKOUT_HISTORY");
-  },
+  // clearWorkoutHistory({ commit }) {
+  //   commit("CLEAR_WORKOUT_HISTORY");
+  // },
   clearWorkoutState({ commit }) {
     commit("CLEAR_WORKOUT_STATE");
   }
