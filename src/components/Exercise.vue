@@ -62,6 +62,7 @@
                 min="0"
                 max="99"
                 pattern="\d*"
+                placeholder="0"
                 onClick="this.value = null"
                 class="rep-input text-center"
                 v-model="sets[n - 1]"

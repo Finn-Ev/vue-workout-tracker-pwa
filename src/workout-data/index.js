@@ -746,7 +746,7 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Push-Ups (Decline)",
+        name: "Pike Push-Ups",
         sets: 4,
         reps: "8",
         pause: "2",
@@ -760,7 +760,7 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Diamond Push-Ups",
+        name: "Enge Push-Ups",
         sets: 3,
         reps: "10",
         pause: "1.5",
@@ -889,7 +889,7 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Diamond Push-Ups",
+        name: "Enge Push-Ups",
         sets: 3,
         reps: "10",
         pause: "1.5",
