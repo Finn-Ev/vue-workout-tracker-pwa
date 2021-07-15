@@ -731,7 +731,210 @@ export default [
       }
     ]
   },
+
   // bodyweight start
+  //bodyweight level 1
+  {
+    plan: "bw1",
+    planName: "Bodyweight Level 1",
+    id: "BW1A1",
+    name: "Push Tag A",
+    exercises: [
+      {
+        name: "Dips",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Squats",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Breite Liegestütz",
+        sets: 3,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Jumping Lunges (alternierend)",
+        sets: 4,
+        reps: "12",
+        pause: "1.5",
+        isBodyweight: true
+      },
+      {
+        name: "Liegestütz",
+        sets: 3,
+        reps: "12",
+        pause: "1.5",
+        isBodyweight: true
+      },
+      {
+        name: "Wadenheben (mit BFR-Band)",
+        sets: 3,
+        reps: "15-30",
+        pause: "0.5",
+        isBodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw1",
+    planName: "Bodyweight Level 1",
+    id: "BW1B1",
+    name: "Pull Tag A",
+    exercises: [
+      {
+        name: "Negative Klimmzüge",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Reverse Plank Lifts",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "BW Rows",
+        sets: 3,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Reverse Plank Holds",
+        sets: 3,
+        reps: "1 min.",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Chin-Up oben halten",
+        sets: 3,
+        reps: "Max Sek",
+        pause: "1",
+        isBodyweight: true
+      },
+      {
+        name: "Supermans",
+        sets: 3,
+        reps: "15",
+        pause: "1",
+        isBodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw1",
+    planName: "Bodyweight Level 1",
+    id: "BW1A2",
+    name: "Push Tag B",
+    exercises: [
+      {
+        name: "Push Ups (Decline)",
+        sets: 4,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Squats",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Enge Liegestütz",
+        sets: 3,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Jumping Lunges (alternierend)",
+        sets: 4,
+        reps: "12",
+        pause: "1.5",
+        isBodyweight: true
+      },
+      {
+        name: "Liegestütz",
+        sets: 3,
+        reps: "12",
+        pause: "1.5",
+        isBodyweight: true
+      },
+      {
+        name: "Wadenheben (mit BFR-Band)",
+        sets: 3,
+        reps: "15-30",
+        pause: "0.5",
+        isBodyweight: true
+      }
+    ]
+  },
+  {
+    plan: "bw1",
+    planName: "Bodyweight Level 1",
+    id: "BW1B2",
+    name: "Pull Tag B",
+    exercises: [
+      {
+        name: "Chin Ups",
+        sets: 3,
+        reps: "6",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Reverse Plank Lifts",
+        sets: 4,
+        reps: "12",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Negative Klimmzüge",
+        sets: 3,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Reverse Plank Holds",
+        sets: 3,
+        reps: "1 min.",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "BW Rows",
+        sets: 3,
+        reps: "8",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Supermans",
+        sets: 3,
+        reps: "15",
+        pause: "1",
+        isBodyweight: true
+      }
+    ]
+  },
+  //bodyweight level 2
   {
     plan: "bw2",
     planName: "Bodyweight Level 2",

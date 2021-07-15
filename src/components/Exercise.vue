@@ -98,7 +98,6 @@
               notes: notes ? notes : ''
             })
           "
-          style="touch-action: manipulation"
           text
           block
           tag="div"

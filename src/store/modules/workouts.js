@@ -3,6 +3,7 @@ export const namespaced = true;
 export const state = {
   ongoingWorkout: {
     isActive: false,
+    warmupCompleted: false,
     exercises: []
   },
   savedWorkouts: [],
@@ -12,6 +13,7 @@ export const mutations = {
   SAVE_WORKOUT(state, workout) {
     state.savedWorkouts.unshift(workout);
     state.ongoingWorkout = {
+      warmupCompleted: false,
       isActive: false,
       exercises: []
     };
@@ -27,15 +29,17 @@ export const mutations = {
   },
   CANCEL_WORKOUT(state) {
     state.ongoingWorkout = {
+      warmupCompleted: false,
       isActive: false,
       exercises: []
     };
   },
-  // CLEAR_WORKOUT_HISTORY(state) {
-  //   state.savedWorkouts = [];
-  // },
+  COMPLETE_WARMUP(state) {
+    state.ongoingWorkout.warmupCompleted = true;
+  },
   CLEAR_WORKOUT_STATE(state) {
     state.ongoingWorkout = {
+      warmupCompleted: false,
       isActive: false,
       exercises: []
     };
@@ -60,9 +64,9 @@ export const actions = {
   cancelWorkout({ commit }) {
     commit("CANCEL_WORKOUT");
   },
-  // clearWorkoutHistory({ commit }) {
-  //   commit("CLEAR_WORKOUT_HISTORY");
-  // },
+  completeWarmup({ commit }) {
+    commit("COMPLETE_WARMUP");
+  },
   clearWorkoutState({ commit }) {
     commit("CLEAR_WORKOUT_STATE");
   }

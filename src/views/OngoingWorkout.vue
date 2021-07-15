@@ -4,51 +4,79 @@
       <h3 class="mt-3 text-center font-weight-regular">
         Aktives Training: {{ activeWorkout.name }}
       </h3>
-      <exercise
-        class="mt-3 mx-2"
-        v-for="(exercise, idx) in activeWorkout.exercises"
-        :key="exercise.name"
-        :exercise="exercise"
-        :idx="idx"
-        :savedExerciseData="savedExerciseData"
-      />
 
-      <div class="buttons mx-2 mt-1 mb-3">
-        <v-btn
-          color="success"
-          @click="
-            setDialogValues({
-              show: true,
-              title: 'Training speichern?',
-              text: 'Willst du das Training wirklich speichern und beenden?',
-              textColor: 'green',
-              onconfirmMethod: finishWorkout,
-              confirmText: 'Speichern & Beenden'
-            })
-          "
-          >Training speichern & beenden
-        </v-btn>
+      <v-card class="mx-2 my-3" v-if="!warmupCompleted">
+        <v-card-title>Aufwärmen! </v-card-title>
+        <v-card-subtitle class="mb-n3">
+          z.B. mit diesem
+          <a
+            class="text-decoration-none"
+            target="blank"
+            href="https://www.youtube.com/watch?v=p-v_obY-lYw&ab_channel=CoachStef"
+          >
+            <span class="link">Video</span
+            ><v-icon class="ml-1">mdi-youtube</v-icon>
+          </a>
+        </v-card-subtitle>
+        <v-card-actions>
+          <v-btn
+            @click="setWarmupAsCompleted"
+            text
+            block
+            tag="div"
+            color="success"
+          >
+            Ich bin aufgewärmt</v-btn
+          >
+        </v-card-actions>
+      </v-card>
 
-        <v-btn
-          color="red"
-          class="mt-3 white--text"
-          @click="
-            setDialogValues({
-              show: true,
-              title: 'Achtung',
-              text:
-                'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert.',
-              textColor: 'red',
-              onconfirmMethod: cancelWorkout,
-              confirmText: 'Training abbrechen'
-            })
-          "
-        >
-          Training abbrechen
-        </v-btn>
+      <div v-if="warmupCompleted">
+        <exercise
+          class="mt-3 mx-2"
+          v-for="(exercise, idx) in activeWorkout.exercises"
+          :key="exercise.name"
+          :exercise="exercise"
+          :idx="idx"
+          :savedExerciseData="savedExerciseData"
+        />
+
+        <div class="buttons mx-2 mt-1 mb-3">
+          <v-btn
+            color="success"
+            @click="
+              setDialogValues({
+                show: true,
+                title: 'Training speichern?',
+                text: 'Willst du das Training wirklich speichern und beenden?',
+                textColor: 'green',
+                onconfirmMethod: finishWorkout,
+                confirmText: 'Speichern & Beenden'
+              })
+            "
+            >Training speichern & beenden
+          </v-btn>
+
+          <v-btn
+            color="red"
+            class="mt-3 white--text"
+            @click="
+              setDialogValues({
+                show: true,
+                title: 'Achtung',
+                text:
+                  'Willst du das Training wirklich abbrechen? Deine Eingaben werden nicht gespeichert.',
+                textColor: 'red',
+                onconfirmMethod: cancelWorkout,
+                confirmText: 'Training abbrechen'
+              })
+            "
+          >
+            Training abbrechen
+          </v-btn>
+        </div>
       </div>
     </div>
-
     <div
       class="d-flex flex-column mt-n5 w-100 vh-100 align-center justify-center"
       v-else
@@ -84,6 +112,9 @@ export default {
       );
       return workout;
     },
+    warmupCompleted() {
+      return this.workouts.ongoingWorkout.warmupCompleted;
+    },
     savedExerciseData() {
       return (
         this.workouts.savedWorkouts.filter(
@@ -94,6 +125,9 @@ export default {
     ...mapState(["workouts"])
   },
   methods: {
+    setWarmupAsCompleted() {
+      this.$store.dispatch("workouts/completeWarmup");
+    },
     setDialogValues({ ...dialogData }) {
       this.$store.dispatch("dialog/setDialog", dialogData);
     },
@@ -138,4 +172,13 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: red !important;
+}
+
+.mdi::before {
+  color: red;
+}
+</style>
