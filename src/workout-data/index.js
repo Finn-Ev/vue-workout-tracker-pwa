@@ -756,7 +756,7 @@ export default [
       },
       {
         name: "Breite Liegestütz",
-        sets: 3,
+        sets: 4,
         reps: "8",
         pause: "2",
         isBodyweight: true
@@ -806,14 +806,14 @@ export default [
       },
       {
         name: "BW Rows",
-        sets: 3,
+        sets: 4,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Reverse Plank Holds",
-        sets: 3,
+        sets: 4,
         reps: "1 min.",
         pause: "2",
         isBodyweight: true
@@ -856,7 +856,7 @@ export default [
       },
       {
         name: "Enge Liegestütz",
-        sets: 3,
+        sets: 4,
         reps: "8",
         pause: "2",
         isBodyweight: true
@@ -892,7 +892,7 @@ export default [
     exercises: [
       {
         name: "Chin Ups",
-        sets: 3,
+        sets: 4,
         reps: "6",
         pause: "2",
         isBodyweight: true
@@ -906,14 +906,14 @@ export default [
       },
       {
         name: "Negative Klimmzüge",
-        sets: 3,
+        sets: 4,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Reverse Plank Holds",
-        sets: 3,
+        sets: 4,
         reps: "1 min.",
         pause: "2",
         isBodyweight: true
