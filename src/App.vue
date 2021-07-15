@@ -35,8 +35,6 @@ export default {
     redirect() {
       if (this.hasActiveWorkout) {
         this.$router.push("/ongoing");
-      } else if (this.$route.path !== "/") {
-        this.$router.push("/");
       }
     }
   },
