@@ -776,7 +776,7 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Wadenheben (mit BFR-Band)",
+        name: "Wadenheben (ggf. mit BFR-Band)",
         sets: 3,
         reps: "15-30",
         pause: "0.5",
@@ -876,7 +876,7 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Wadenheben (mit BFR-Band)",
+        name: "Wadenheben (ggf. mit BFR-Band)",
         sets: 3,
         reps: "15-30",
         pause: "0.5",
