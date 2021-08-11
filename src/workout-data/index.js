@@ -1028,10 +1028,10 @@ export default [
     name: "Bodyweight Legs A",
     exercises: [
       {
-        name: "Single Leg Squats",
-        sets: 6,
-        reps: "8",
-        pause: "1",
+        name: "(Assisted) Pistol Squats",
+        sets: 4,
+        reps: "je 6",
+        pause: "2",
         isBodyweight: true
       },
       {
@@ -1042,9 +1042,9 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Jumping Lunges (alternierend)",
-        sets: 4,
-        reps: "20",
+        name: "Bulg. Splitsquats",
+        sets: 3,
+        reps: "12 pro Seite",
         pause: "2",
         isBodyweight: true
       },
@@ -1157,10 +1157,10 @@ export default [
     name: "Bodyweight Legs B",
     exercises: [
       {
-        name: "Single Leg Squats (abwechselnd)",
-        sets: 6,
-        reps: "8",
-        pause: "1",
+        name: "(Assisted) Single Leg Squats",
+        sets: 3,
+        reps: "6",
+        pause: "2",
         isBodyweight: true
       },
       {
@@ -1171,9 +1171,9 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Jumping Lunges (alternierend)",
-        sets: 4,
-        reps: "20",
+        name: "Bulg. Splitsquats",
+        sets: 3,
+        reps: "12 pro Seite",
         pause: "2",
         isBodyweight: true
       },

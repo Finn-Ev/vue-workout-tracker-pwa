@@ -120,7 +120,7 @@ export default {
         ]
           ? // if the last saved workout is not the last of the plan, just increment by one and pick the next
             workoutsFromCurrentPlan[idxOfLastWorkoutFromCurrentPlan + 1].id
-          : // otherwise start at the begin again
+          : // otherwise start at the beginning again
             workoutsFromCurrentPlan[0].id;
       }
 
