@@ -942,39 +942,39 @@ export default [
     name: "Bodyweight Push A",
     exercises: [
       {
-        name: "Planche Hold",
-        sets: 4,
-        reps: "20",
+        name: "Archer Push Ups",
+        sets: 3,
+        reps: "6",
         pause: "2",
         isBodyweight: true
       },
       {
-        name: "Pike Push-Ups",
-        sets: 4,
+        name: "SB Dips",
+        sets: 3,
+        reps: "10",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "DB Push Ups",
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
-        name: "Dips",
-        sets: 4,
-        reps: "8",
-        pause: "2",
-        isBodyweight: true
-      },
-      {
-        name: "Enge Push-Ups",
+        name: "Enges Bankdrücken",
         sets: 3,
         reps: "10",
         pause: "1.5",
-        isBodyweight: true
+        isBodyweight: false
       },
       {
-        name: "Push-Ups",
+        name: "French Press",
         sets: 3,
         reps: "15",
         pause: "1",
-        isBodyweight: true
+        isBodyweight: false
       }
     ]
   },
@@ -985,29 +985,29 @@ export default [
     name: "Bodyweight Pull A",
     exercises: [
       {
-        name: "Tuck Frontlever Hold",
-        sets: 4,
-        reps: "20 Sek.",
+        name: "High Pull Ups",
+        sets: 3,
+        reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Klimmzüge",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Chin-Ups",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Commando Pull-Ups",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
@@ -1015,7 +1015,7 @@ export default [
       {
         name: "BW Rows",
         sets: 4,
-        reps: "12",
+        reps: "10",
         pause: "1.5",
         isBodyweight: true
       }
@@ -1071,39 +1071,32 @@ export default [
     name: "Bodyweight Push B",
     exercises: [
       {
-        name: "Pseudo Planche Push-Ups",
-        sets: 4,
-        reps: "10",
+        name: "Archer Push-Ups",
+        sets: 6,
+        reps: "6",
+        pause: "2",
+        isBodyweight: true
+      },
+      {
+        name: "Weighted Dips",
+        sets: 3,
+        reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Push-Ups (Decline)",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
-        name: "Dips",
-        sets: 4,
+        name: "French Press",
+        sets: 3,
         reps: "8",
         pause: "2",
-        isBodyweight: true
-      },
-      {
-        name: "Enge Push-Ups",
-        sets: 3,
-        reps: "10",
-        pause: "1.5",
-        isBodyweight: true
-      },
-      {
-        name: "Scapula Push-Ups",
-        sets: 3,
-        reps: "12",
-        pause: "1",
-        isBodyweight: true
+        isBodyweight: false
       }
     ]
   },
@@ -1115,28 +1108,28 @@ export default [
     exercises: [
       {
         name: "Ice Cream Makers",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Klimmzüge",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "Chin-Ups",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
         name: "BW Rows",
-        sets: 4,
+        sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
