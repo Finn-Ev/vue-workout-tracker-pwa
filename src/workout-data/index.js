@@ -949,11 +949,11 @@ export default [
         isBodyweight: true
       },
       {
-        name: "SB Dips",
+        name: "Weighted Dips",
         sets: 3,
         reps: "10",
         pause: "2",
-        isBodyweight: true
+        isBodyweight: false
       },
       {
         name: "DB Push Ups",
@@ -985,14 +985,14 @@ export default [
     name: "Bodyweight Pull A",
     exercises: [
       {
-        name: "High Pull Ups",
+        name: "Explosive Pull Ups",
         sets: 3,
         reps: "8",
         pause: "2",
         isBodyweight: true
       },
       {
-        name: "Klimmzüge",
+        name: "Pull Ups",
         sets: 3,
         reps: "8",
         pause: "2",
@@ -1007,7 +1007,7 @@ export default [
       },
       {
         name: "Commando Pull-Ups",
-        sets: 3,
+        sets: 2,
         reps: "8",
         pause: "2",
         isBodyweight: true
@@ -1121,16 +1121,16 @@ export default [
         isBodyweight: true
       },
       {
-        name: "Chin-Ups",
+        name: "BW Rows",
         sets: 3,
-        reps: "8",
+        reps: "10",
         pause: "2",
         isBodyweight: true
       },
       {
-        name: "BW Rows",
+        name: "Assisted Chin-Ups",
         sets: 3,
-        reps: "8",
+        reps: "10",
         pause: "2",
         isBodyweight: true
       },
