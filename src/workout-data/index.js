@@ -985,7 +985,7 @@ export default [
     name: "Bodyweight Pull A",
     exercises: [
       {
-        name: "Explosive Pull Ups",
+        name: "Kipping High Pull Ups",
         sets: 3,
         reps: "8",
         pause: "2",
