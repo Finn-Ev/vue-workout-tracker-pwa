@@ -1,24 +1,7 @@
-# workout-app
+# Workout-Tracker
 
-## Project setup
-```
-yarn install
-```
+A PWA to track your progress on predefined training-plans.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+[Demo](https://workout-app-fe.netlify.app/#/)
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
