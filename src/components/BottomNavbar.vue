@@ -67,12 +67,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-btn {
+  background: transparent !important;
+}
 .v-icon.v-icon {
   font-size: 38px;
 }
-.v-bottom-navigation {
-  height: 70px !important;
-}
+
 .bottom-nav {
   display: flex;
   width: 100%;
