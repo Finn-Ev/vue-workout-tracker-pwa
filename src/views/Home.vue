@@ -108,7 +108,6 @@ export default {
       let nextWorkoutId = null;
       if (!lastSavedWorkout) {
         // just start the first workout of the current plan when there is no saved workout (it could be the case that the user started the first workout and then canceled it)
-        console.log(workoutsFromCurrentPlan[0]);
         nextWorkoutId = workoutsFromCurrentPlan[0].id;
       } else {
         const idxOfLastWorkoutFromCurrentPlan = workoutsFromCurrentPlan?.findIndex(
