@@ -7,8 +7,8 @@
         Diese App bietet aktuell vier verschiedene Trainingspläne. Die
         Reihenfolge und Frequenz der Trainingseinheiten können beliebig gewählt
         werden. <br />
-        Sinnvoll ist es, nicht andauernd zwischen den Plänen zu wechseln sondern
-        sich konstant von Training zu Training eines Plans zu steigern.
+        Es ist jedoch sinnvoll nicht andauernd zwischen den Plänen zu wechseln
+        sondern sich konstant von Training zu Training eines Plans zu steigern.
       </p>
       <v-btn class="plan-button" to="/plans">Zu den Plänen</v-btn>
     </v-card>

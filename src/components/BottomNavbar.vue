@@ -68,17 +68,17 @@ export default {
 
 <style lang="scss" scoped>
 .v-icon.v-icon {
-  font-size: 38px !important;
+  font-size: 38px;
 }
 .v-bottom-navigation {
   height: 70px !important;
 }
 .bottom-nav {
   display: flex;
-  width: 100% !important;
-  max-width: 600px !important;
-  align-items: center !important;
-  justify-content: space-around !important;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+  justify-content: space-around;
 
   .v-btn::before {
     background-color: transparent;
