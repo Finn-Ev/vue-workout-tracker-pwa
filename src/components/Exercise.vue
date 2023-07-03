@@ -206,8 +206,9 @@ export default {
   background-color: rgba($color: #000, $alpha: 0) !important;
 }
 .rep-input {
-  width: 100% !important;
-  font-size: 16px !important;
-  padding: 0 !important;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+  color: white;
 }
 </style>

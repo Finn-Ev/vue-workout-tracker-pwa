@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-bottom-navigation app>
-      <div class="bottom-nav" :class="{ 'pb-4 ': isiPhone }">
+      <div class="bottom-nav">
         <v-btn tag="div" to="/">
           <v-icon>mdi-home</v-icon>
         </v-btn>
